@@ -55,9 +55,7 @@ const minutosOuNulo = valor => {
 const isValid = computed(() => {
   const fr = minutosOuNulo(firstResponseMinutes.value);
   const rs = minutosOuNulo(resolutionMinutes.value);
-  return (
-    name.value.trim().length > 0 && !Number.isNaN(fr) && !Number.isNaN(rs)
-  );
+  return name.value.trim().length > 0 && !Number.isNaN(fr) && !Number.isNaN(rs);
 });
 
 const submit = async () => {
@@ -71,7 +69,10 @@ const submit = async () => {
   };
   try {
     if (isEdit.value) {
-      await store.dispatch('caktoSla/update', { id: props.policy.id, ...payload });
+      await store.dispatch('caktoSla/update', {
+        id: props.policy.id,
+        ...payload,
+      });
       useAlert(t('CAKTO_SLA.SETTINGS.API.UPDATE_SUCCESS'));
     } else {
       await store.dispatch('caktoSla/create', payload);
@@ -112,7 +113,9 @@ const submit = async () => {
           type="number"
           min="1"
           :label="$t('CAKTO_SLA.SETTINGS.FORM.FIRST_RESPONSE.LABEL')"
-          :placeholder="$t('CAKTO_SLA.SETTINGS.FORM.FIRST_RESPONSE.PLACEHOLDER')"
+          :placeholder="
+            $t('CAKTO_SLA.SETTINGS.FORM.FIRST_RESPONSE.PLACEHOLDER')
+          "
         />
         <Input
           v-model="resolutionMinutes"
