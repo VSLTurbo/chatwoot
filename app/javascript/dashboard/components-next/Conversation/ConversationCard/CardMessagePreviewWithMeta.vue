@@ -7,6 +7,7 @@ import MessagePreview from 'dashboard/components-next/Conversation/ConversationC
 import CardLabels from 'dashboard/components-next/Conversation/ConversationCard/CardLabels.vue';
 import SLACardLabel from 'dashboard/components-next/Conversation/ConversationCard/SLACardLabel.vue';
 import CaktoSlaBadge from 'dashboard/components-next/Conversation/CaktoSlaBadge.vue';
+import CaktoTicketBadge from 'dashboard/components-next/Conversation/CaktoTicketBadge.vue';
 
 const props = defineProps({
   conversation: {
@@ -70,8 +71,12 @@ const caktoSlaChat = computed(() =>
     : null
 );
 
+const hasCaktoTicket = computed(
+  () => !!props.conversation?.additionalAttributes?.caktoTicket
+);
+
 const hasSlaBadge = computed(
-  () => hasSlaThreshold.value || !!caktoSlaChat.value
+  () => hasSlaThreshold.value || !!caktoSlaChat.value || hasCaktoTicket.value
 );
 
 defineExpose({
@@ -113,6 +118,7 @@ defineExpose({
           :conversation="conversation"
         />
         <CaktoSlaBadge v-if="caktoSlaChat" :chat="caktoSlaChat" />
+        <CaktoTicketBadge v-if="hasCaktoTicket" />
       </div>
       <div v-if="hasSlaBadge && hasLabels" class="w-px h-3 bg-n-slate-4" />
       <div v-if="hasLabels" class="overflow-hidden">

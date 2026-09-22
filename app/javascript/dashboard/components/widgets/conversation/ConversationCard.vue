@@ -11,6 +11,7 @@ import CardPriorityIcon from 'dashboard/components-next/Conversation/Conversatio
 import UnreadBadge from 'dashboard/components-next/Conversation/ConversationCard/UnreadBadge.vue';
 import SLACardLabel from './components/SLACardLabel.vue';
 import CaktoSlaBadge from 'dashboard/components-next/Conversation/CaktoSlaBadge.vue';
+import CaktoTicketBadge from 'dashboard/components-next/Conversation/CaktoTicketBadge.vue';
 import VoiceCallStatus from './VoiceCallStatus.vue';
 import Checkbox from 'dashboard/components-next/checkbox/Checkbox.vue';
 
@@ -68,10 +69,16 @@ const hasSlaPolicyId = computed(
 );
 
 const hasCaktoSla = computed(() => !!props.chat?.cakto_sla);
+const hasCaktoTicket = computed(
+  () => !!props.chat?.additional_attributes?.cakto_ticket
+);
 
 const showLabelsSection = computed(() => {
   return (
-    props.chat.labels?.length > 0 || hasSlaPolicyId.value || hasCaktoSla.value
+    props.chat.labels?.length > 0 ||
+    hasSlaPolicyId.value ||
+    hasCaktoSla.value ||
+    hasCaktoTicket.value
   );
 });
 
@@ -240,7 +247,10 @@ watch(
         :conversation-labels="chat.labels"
         class="mt-0.5 mx-2 mb-0"
       >
-        <template v-if="hasSlaPolicyId || hasCaktoSla" #before>
+        <template
+          v-if="hasSlaPolicyId || hasCaktoSla || hasCaktoTicket"
+          #before
+        >
           <SLACardLabel
             v-if="hasSlaPolicyId"
             :chat="chat"
@@ -251,6 +261,7 @@ watch(
             :chat="chat"
             class="ltr:mr-1 rtl:ml-1"
           />
+          <CaktoTicketBadge v-if="hasCaktoTicket" class="ltr:mr-1 rtl:ml-1" />
         </template>
       </CardLabels>
     </div>
