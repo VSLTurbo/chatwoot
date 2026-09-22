@@ -148,6 +148,7 @@ const copyConversationId = async () => {
           class="flex items-center gap-1 overflow-hidden text-xs conversation--header--actions text-n-slate-11 text-ellipsis whitespace-nowrap"
         >
           <button
+            v-tooltip.bottom="$t('TOOLTIPS.CONVERSATION.COPY_ID')"
             type="button"
             class="truncate text-label-small text-n-slate-11 hover:text-n-slate-12 !p-0 cucursor-pointer"
             @click="copyConversationId"

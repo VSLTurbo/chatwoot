@@ -81,7 +81,7 @@ const onShowLabels = e => {
       />
       <button
         v-if="showExpandLabelButton"
-        :title="
+        v-tooltip="
           showAllLabels
             ? $t('CONVERSATION.CARD.HIDE_LABELS')
             : $t('CONVERSATION.CARD.SHOW_LABELS')

@@ -10,6 +10,27 @@
       "EXPAND_SECTION": "Expand this section",
       "RESIZE": "Drag to resize. Double-click to collapse or expand the sidebar",
       "CHANGELOG": "What's new"
+    },
+    "CONVERSATION": {
+      "COPY_ID": "Copy the conversation number",
+      "RESOLVE": "Close the conversation. It leaves the queue",
+      "REOPEN": "Send the conversation back to the open queue",
+      "OPEN": "Take it out of pending and back to the open queue",
+      "MORE_STATUS": "Snooze for a while or mark as pending",
+      "CAKTO_TICKET_BADGE": "Internal request opened by someone at Cakto for another team",
+      "CAKTO_SLA": {
+        "primeira_resposta": "Time left for the first reply to the customer",
+        "resolucao": "Time left to resolve the conversation",
+        "estourado": "An SLA deadline was missed on this conversation",
+        "cumprido": "All SLA deadlines were met"
+      }
+    },
+    "CHAT_LIST": {
+      "TABS": {
+        "me": "Conversations assigned to you",
+        "unassigned": "Conversations without an assignee yet",
+        "all": "All conversations, assigned or not"
+      }
     }
   }
 }

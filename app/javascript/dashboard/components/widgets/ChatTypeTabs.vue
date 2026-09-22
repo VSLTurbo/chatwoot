@@ -58,6 +58,7 @@ useKeyboardEvents(keyboardEvents);
       :index="index"
       :name="item.name"
       :count="item.count"
+      :tooltip="$t(`TOOLTIPS.CHAT_LIST.TABS.${item.key}`)"
       is-compact
     />
   </woot-tabs>

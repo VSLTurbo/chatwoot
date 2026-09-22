@@ -183,6 +183,7 @@ useEmitter(CMD_RESOLVE_CONVERSATION, onCmdResolveConversation);
     >
       <Button
         v-if="isOpen"
+        v-tooltip.bottom="t('TOOLTIPS.CONVERSATION.RESOLVE')"
         :label="t('CONVERSATION.HEADER.RESOLVE_ACTION')"
         size="sm"
         color="slate"
@@ -193,6 +194,7 @@ useEmitter(CMD_RESOLVE_CONVERSATION, onCmdResolveConversation);
       />
       <Button
         v-else-if="isResolved"
+        v-tooltip.bottom="t('TOOLTIPS.CONVERSATION.REOPEN')"
         :label="t('CONVERSATION.HEADER.REOPEN_ACTION')"
         size="sm"
         color="slate"
@@ -203,6 +205,7 @@ useEmitter(CMD_RESOLVE_CONVERSATION, onCmdResolveConversation);
       />
       <Button
         v-else-if="showOpenButton"
+        v-tooltip.bottom="t('TOOLTIPS.CONVERSATION.OPEN')"
         :label="t('CONVERSATION.HEADER.OPEN_ACTION')"
         size="sm"
         color="slate"
@@ -213,6 +216,7 @@ useEmitter(CMD_RESOLVE_CONVERSATION, onCmdResolveConversation);
       <Button
         v-if="showAdditionalActions"
         ref="arrowDownButtonRef"
+        v-tooltip.bottom="t('TOOLTIPS.CONVERSATION.MORE_STATUS')"
         icon="i-lucide-chevron-down"
         :disabled="isLoading"
         size="sm"

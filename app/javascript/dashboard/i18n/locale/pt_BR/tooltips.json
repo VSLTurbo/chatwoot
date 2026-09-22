@@ -10,6 +10,27 @@
       "EXPAND_SECTION": "Expandir esta seção",
       "RESIZE": "Arraste para ajustar a largura. Clique duas vezes para recolher ou expandir a barra",
       "CHANGELOG": "Novidades do sistema"
+    },
+    "CONVERSATION": {
+      "COPY_ID": "Copiar o número da conversa",
+      "RESOLVE": "Encerrar o atendimento. A conversa sai da fila",
+      "REOPEN": "Voltar a conversa para a fila de abertas",
+      "OPEN": "Tirar da espera e voltar para a fila de abertas",
+      "MORE_STATUS": "Adiar por um tempo ou marcar como pendente",
+      "CAKTO_TICKET_BADGE": "Pedido interno aberto por alguém da Cakto para outra área",
+      "CAKTO_SLA": {
+        "primeira_resposta": "Tempo que resta para a primeira resposta ao cliente",
+        "resolucao": "Tempo que resta para resolver a conversa",
+        "estourado": "Algum prazo do SLA foi perdido nesta conversa",
+        "cumprido": "Todos os prazos do SLA foram cumpridos"
+      }
+    },
+    "CHAT_LIST": {
+      "TABS": {
+        "me": "Conversas atribuídas a você",
+        "unassigned": "Conversas que ainda não têm responsável",
+        "all": "Todas as conversas, com ou sem responsável"
+      }
     }
   }
 }
