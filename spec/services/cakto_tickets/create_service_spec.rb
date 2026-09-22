@@ -24,6 +24,14 @@ describe CaktoTickets::CreateService do
                                                                    content: "**Seller bloqueado**\n\nPrecisa liberar o saque")
   end
 
+  it 'adds the requester to the tickets inbox and as a participant of the ticket' do
+    conversation = perform
+
+    expect(conversation.inbox.members).to eq([user])
+    expect(conversation.conversation_participants.pluck(:user_id)).to eq([user.id])
+    expect(perform.conversation_participants.pluck(:user_id)).to eq([user.id])
+  end
+
   it 'reuses the requester contact and defaults priority to medium' do
     contact = create(:contact, account: account, email: 'ana@cakto.com.br', name: 'Ana Antiga')
 
