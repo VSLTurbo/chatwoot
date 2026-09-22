@@ -13,6 +13,7 @@ class CaktoTickets::CreateService
     ActiveRecord::Base.transaction do
       @conversation = create_conversation
       create_first_message
+      add_requester_as_participant
     end
     create_activities
     @conversation
@@ -88,6 +89,13 @@ class CaktoTickets::CreateService
       account_id: account.id, inbox_id: inbox.id, message_type: :incoming,
       sender: contact_inbox.contact, content: "**#{title}**\n\n#{description}"
     )
+  end
+
+  # O solicitante entra na caixa de tickets (para ver o ticket e poder ser mencionado) e vira
+  # participante, o que liga as notificações nativas a cada resposta.
+  def add_requester_as_participant
+    inbox.inbox_members.find_or_create_by!(user: user)
+    @conversation.conversation_participants.create!(user: user)
   end
 
   # Fora da transação: o display_id vem de trigger do banco e só é carregado após o commit.

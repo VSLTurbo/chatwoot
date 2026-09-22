@@ -12,6 +12,7 @@ class AsyncDispatcher < BaseDispatcher
     [
       AutomationRuleListener.instance,
       CaktoSlaListener.instance,
+      CaktoTicketsListener.instance,
       CampaignListener.instance,
       CsatSurveyListener.instance,
       HookListener.instance,

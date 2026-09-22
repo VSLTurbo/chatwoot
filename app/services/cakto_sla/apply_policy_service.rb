@@ -1,14 +1,22 @@
 class CaktoSla::ApplyPolicyService
-  pattr_initialize [:conversation!]
+  # at: instante de início da contagem (padrão: criação da conversa).
+  pattr_initialize [:conversation!, :at]
 
   def perform
     return if conversation.cakto_sla.present?
     return unless conversation.account.feature_enabled?('cakto_sla')
 
-    policy = conversation.account.cakto_sla_policies.active.covering_inbox(conversation.inbox_id).first
+    policy = self.class.policy_for(conversation)
     return if policy.blank?
 
     conversation.create_cakto_sla!(account_id: conversation.account_id, cakto_sla_policy: policy, **due_attributes(policy))
+  end
+
+  # Equipe manda sobre caixa: a política que cobre a equipe da conversa, senão a que cobre a caixa.
+  def self.policy_for(conversation)
+    policies = conversation.account.cakto_sla_policies.active
+    team_policy = conversation.team_id && policies.covering_team(conversation.team_id).first
+    team_policy || policies.covering_inbox(conversation.inbox_id).first
   end
 
   private
@@ -23,7 +31,7 @@ class CaktoSla::ApplyPolicyService
   end
 
   def due_at(minutes)
-    minutes && (conversation.created_at + minutes.minutes)
+    minutes && ((at || conversation.created_at) + minutes.minutes)
   end
 
   def status_for(minutes)

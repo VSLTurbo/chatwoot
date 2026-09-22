@@ -132,3 +132,40 @@ Relatório: `GET /api/v1/accounts/:account_id/cakto_sla/report?since=<unix>&unti
 - i18n: `i18n/locale/pt_BR/caktoSla.json` e `en/caktoSla.json` (+ `SIDEBAR.CAKTO_SLA`
   em `settings.json` dos dois idiomas). Português primeiro, sem travessão longo.
 - Testes vitest para o cálculo do selo (função pura `caktoSlaStatus.js`) e para o store.
+
+## Adendo 22/09/2026: SLA por equipe (área)
+
+Pedido do Ítalo: prazo por área, valendo a partir da transferência.
+
+- `cakto_sla_policies.team_ids` (integer array, default `[]`): equipes cobertas. Uma
+  equipe em no máximo uma política ativa (validar como `inbox_ids`).
+- **Escolha da política** ao criar a conversa: primeiro a política que cobre
+  `conversation.team_id` (se houver equipe), senão a que cobre a caixa. Sem nenhuma: sem SLA.
+- **Transferência** (`TEAM_CHANGED`, ou `CONVERSATION_UPDATED` com `team_id` em
+  `changed_attributes`, o que existir no dispatcher): se uma política ativa cobre a
+  equipe nova, o registro `cakto_conversation_slas` da conversa é **reaplicado**:
+  `cakto_sla_policy_id` passa a ser o da equipe, e todo prazo ainda `pending` ganha
+  vencimento novo contado da transferência (`Time.current` / `event.timestamp` +
+  minutos). Prazo já `met`/`breached` não muda; `not_measured` vira `pending` se a
+  política nova mede aquele prazo. Se não havia registro, cria como na criação. Se a
+  equipe nova não tem política, nada muda. Atividade na conversa: "SLA passou a ser da
+  política X (equipe Y)".
+- API: `cakto_sla_policy` aceita `team_ids: []` no create/update; jbuilder devolve
+  `team_ids`. Relatório `by_team` já existe.
+- Frontend (feito depois, em outro PR): multiseleção de equipes no formulário da
+  política, ao lado das caixas.
+
+## Adendo 22/09/2026: solicitante do ticket interno é avisado
+
+- Ao criar o ticket (`CaktoTickets::CreateService`), o solicitante vira
+  **participante** da conversa (`conversation_participants`), o que já dispara as
+  notificações nativas de participante a cada resposta.
+- Ao **resolver** um ticket interno (`CONVERSATION_RESOLVED` numa conversa com
+  `additional_attributes['cakto_ticket']`), o sistema cria uma **nota privada**
+  mencionando o solicitante no formato nativo de menção
+  (`[@Nome](mention://user/<id>/<nome url-encoded>)`), com o texto
+  "Seu ticket #<n> foi resolvido pela equipe <equipe>." — a menção dispara a
+  notificação `conversation_mention` (sino, e-mail, push). Remetente da nota: quem
+  resolveu (`Current.user`) quando houver; a menção não notifica o próprio remetente,
+  então se o solicitante resolveu o próprio ticket não há aviso, o que é correto.
+- Listener: `CaktoTicketsListener#conversation_resolved` no async dispatcher.
