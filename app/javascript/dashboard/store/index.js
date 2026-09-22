@@ -37,6 +37,7 @@ import inboxAssignableAgents from './modules/inboxAssignableAgents';
 import inboxes from './modules/inboxes';
 import inboxMembers from './modules/inboxMembers';
 import integrations from './modules/integrations';
+import caktoSla from './modules/caktoSla';
 import labels from './modules/labels';
 import macros from './modules/macros';
 import notifications from './modules/notifications';
@@ -104,6 +105,7 @@ export default createStore({
     inboxes,
     inboxMembers,
     integrations,
+    caktoSla,
     labels,
     macros,
     notifications,
