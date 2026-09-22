@@ -23,6 +23,7 @@ import CsatResponses from './CsatResponses.vue';
 import BotReports from './BotReports.vue';
 import LiveReports from './LiveReports.vue';
 import SLAReports from './SLAReports.vue';
+import CaktoSlaReports from './CaktoSlaReports.vue';
 
 const meta = {
   featureFlag: FEATURE_FLAGS.REPORTS,
@@ -139,6 +140,15 @@ export default {
           name: 'sla_reports',
           meta,
           component: SLAReports,
+        },
+        {
+          path: 'cakto-sla',
+          name: 'cakto_sla_reports',
+          meta: {
+            featureFlag: FEATURE_FLAGS.CAKTO_SLA,
+            permissions: ['administrator'],
+          },
+          component: CaktoSlaReports,
         },
         {
           path: 'csat',
