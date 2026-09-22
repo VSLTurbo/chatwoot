@@ -11,7 +11,6 @@ import agentBot from './agentBots/agentBot.routes';
 import attributes from './attributes/attributes.routes';
 import automation from './automation/automation.routes';
 import auditlogs from './auditlogs/audit.routes';
-import billing from './billing/billing.routes';
 import caktoSla from './caktoSla/caktoSla.routes';
 import canned from './canned/canned.routes';
 import inbox from './inbox/inbox.routes';
@@ -56,7 +55,6 @@ export default {
     ...attributes.routes,
     ...automation.routes,
     ...auditlogs.routes,
-    ...billing.routes,
     ...caktoSla.routes,
     ...canned.routes,
     ...inbox.routes,

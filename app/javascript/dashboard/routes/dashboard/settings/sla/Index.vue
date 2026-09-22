@@ -2,7 +2,6 @@
 import AddSLA from './AddSLA.vue';
 import SettingsLayout from '../SettingsLayout.vue';
 import BaseSettingsHeader from 'dashboard/routes/dashboard/settings/components/BaseSettingsHeader.vue';
-import SLAPaywallEnterprise from './SLAPaywallEnterprise.vue';
 import {
   BaseTable,
   BaseTableRow,
@@ -22,7 +21,6 @@ export default {
     AddSLA,
     SettingsLayout,
     BaseSettingsHeader,
-    SLAPaywallEnterprise,
     BaseTable,
     BaseTableRow,
     BaseTableCell,
@@ -41,11 +39,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isOnChatwootCloud: 'globalConfig/isOnChatwootCloud',
-      isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
       records: 'sla/getSLA',
-      currentUser: 'getCurrentUser',
-      accountId: 'getCurrentAccountId',
       uiFlags: 'sla/getUIFlags',
     }),
     deleteConfirmText() {
@@ -56,12 +50,6 @@ export default {
     },
     deleteMessage() {
       return ` ${this.selectedResponse.name}`;
-    },
-    isBehindAPaywall() {
-      return !this.isFeatureEnabledonAccount(this.accountId, 'sla');
-    },
-    isSuperAdmin() {
-      return this.currentUser.type === 'SuperAdmin';
     },
     tableHeaders() {
       return [
@@ -84,9 +72,6 @@ export default {
   },
   methods: {
     openAddPopup() {
-      if (this.isBehindAPaywall) {
-        return;
-      }
       this.showAddPopup = true;
     },
     hideAddPopup() {
@@ -126,12 +111,6 @@ export default {
       if (!time) return '-';
       return `${time}${unit}`;
     },
-    onClickCTA() {
-      this.$router.push({
-        name: 'billing_settings_index',
-        params: { accountId: this.accountId },
-      });
-    },
   },
 };
 </script>
@@ -147,17 +126,15 @@ export default {
         :title="$t('SLA.HEADER')"
         :description="$t('SLA.DESCRIPTION')"
         :link-text="$t('SLA.LEARN_MORE')"
-        :search-placeholder="
-          isBehindAPaywall ? '' : $t('SLA.SEARCH_PLACEHOLDER')
-        "
+        :search-placeholder="$t('SLA.SEARCH_PLACEHOLDER')"
         feature-name="sla"
       >
-        <template v-if="!isBehindAPaywall && records?.length" #count>
+        <template v-if="records?.length" #count>
           <span class="text-body-main text-n-slate-11">
             {{ $t('SLA.COUNT', { n: records.length }) }}
           </span>
         </template>
-        <template v-if="!isBehindAPaywall" #actions>
+        <template #actions>
           <NextButton
             :label="$t('SLA.ADD_ACTION')"
             size="sm"
@@ -167,14 +144,7 @@ export default {
       </BaseSettingsHeader>
     </template>
     <template #body>
-      <SLAPaywallEnterprise
-        v-if="isBehindAPaywall"
-        :is-super-admin="isSuperAdmin"
-        :is-on-chatwoot-cloud="isOnChatwootCloud"
-        @upgrade="onClickCTA"
-      />
       <BaseTable
-        v-else
         :headers="tableHeaders"
         :items="filteredRecords"
         :no-data-message="
