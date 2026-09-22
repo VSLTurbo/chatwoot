@@ -91,10 +91,12 @@
       },
       "BY_INBOX": "Por caixa de entrada",
       "BY_AGENT": "Por agente",
+      "BY_TEAM": "Por equipe",
       "UNASSIGNED": "Sem responsável",
       "TABLE": {
         "INBOX": "Caixa",
         "AGENT": "Agente",
+        "TEAM": "Equipe",
         "CONVERSATIONS": "Conversas",
         "FIRST_RESPONSE": "1ª resposta no prazo",
         "RESOLUTION": "Resolução no prazo",
