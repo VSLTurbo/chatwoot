@@ -125,12 +125,14 @@ onBeforeMount(() => {
                 {{ policy.description }}
               </p>
             </BaseTableCell>
-            <BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.FIRST_RESPONSE')"
+            >
               <span class="text-body-main text-n-slate-11">
                 {{ minutos(policy.first_response_minutes) }}
               </span>
             </BaseTableCell>
-            <BaseTableCell>
+            <BaseTableCell v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.RESOLUTION')">
               <span class="text-body-main text-n-slate-11">
                 {{ minutos(policy.resolution_minutes) }}
               </span>
@@ -146,6 +148,7 @@ onBeforeMount(() => {
             </BaseTableCell>
             <BaseTableCell>
               <span
+                v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.ACTIVE')"
                 class="px-2 py-0.5 text-xs font-medium rounded-md"
                 :class="
                   policy.active

@@ -51,6 +51,22 @@
       "OPEN_PROFILE": "Abrir a ficha completa do contato",
       "SECTION_HEADER": "Clique para abrir ou fechar. Arraste para mudar a ordem",
       "DELETE_NOTE": "Apagar esta nota"
+    },
+    "CAKTO_TICKETS": {
+      "TEAM": "Área da Cakto que vai receber e responder o pedido",
+      "PRIORITY": "Urgência para a área. Urgente aparece primeiro na fila",
+      "RELATED": "Número da conversa com o cliente que originou o pedido",
+      "SELLER": "Seller a que o pedido se refere, para a área localizar"
+    },
+    "CAKTO_SLA": {
+      "FIRST_RESPONSE": "Prazo, em minutos, para o time responder pela primeira vez",
+      "RESOLUTION": "Prazo, em minutos, para a conversa ser resolvida",
+      "INBOXES": "Caixas em que este prazo vale. Cada caixa só cabe em uma política ativa",
+      "ACTIVE": "Só política ativa conta prazo nas conversas",
+      "REPORT_INBOX_FILTER": "Ver só as conversas de uma caixa",
+      "REPORT_FIRST_RESPONSE": "Dentro do prazo entre as medidas. Medida é a conversa que já teve primeira resposta ou já estourou",
+      "REPORT_RESOLUTION": "Dentro do prazo entre as medidas. Medida é a conversa já resolvida ou que já estourou",
+      "REPORT_PENDING": "Prazos ainda correndo: a conversa não foi respondida ou resolvida e não estourou"
     }
   }
 }

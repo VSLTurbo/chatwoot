@@ -110,6 +110,7 @@ const submit = async () => {
       <div class="grid grid-cols-2 gap-4">
         <Input
           v-model="firstResponseMinutes"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.FIRST_RESPONSE')"
           type="number"
           min="1"
           :label="$t('CAKTO_SLA.SETTINGS.FORM.FIRST_RESPONSE.LABEL')"
@@ -119,6 +120,7 @@ const submit = async () => {
         />
         <Input
           v-model="resolutionMinutes"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.RESOLUTION')"
           type="number"
           min="1"
           :label="$t('CAKTO_SLA.SETTINGS.FORM.RESOLUTION.LABEL')"
@@ -131,11 +133,15 @@ const submit = async () => {
         </label>
         <TagMultiSelectComboBox
           v-model="inboxIds"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.INBOXES')"
           :options="inboxOptions"
           :placeholder="$t('CAKTO_SLA.SETTINGS.FORM.INBOXES.PLACEHOLDER')"
         />
       </div>
-      <label class="flex items-center gap-2 cursor-pointer">
+      <label
+        v-tooltip.right="$t('TOOLTIPS.CAKTO_SLA.ACTIVE')"
+        class="flex items-center gap-2 cursor-pointer"
+      >
         <Checkbox v-model="active" />
         <span class="text-sm text-n-slate-12">
           {{ $t('CAKTO_SLA.SETTINGS.FORM.ACTIVE') }}

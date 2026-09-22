@@ -117,6 +117,7 @@ defineExpose({ open });
         </label>
         <select
           v-model="teamId"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_TICKETS.TEAM')"
           data-test="team"
           :class="SELECT_CLASS"
           :disabled="uiFlags.isFetchingSetup"
@@ -154,7 +155,12 @@ defineExpose({ open });
           <label class="text-sm font-medium text-n-slate-12">
             {{ $t('CAKTO_TICKETS.FORM.PRIORITY.LABEL') }}
           </label>
-          <select v-model="priority" data-test="priority" :class="SELECT_CLASS">
+          <select
+            v-model="priority"
+            v-tooltip.top="$t('TOOLTIPS.CAKTO_TICKETS.PRIORITY')"
+            data-test="priority"
+            :class="SELECT_CLASS"
+          >
             <option v-for="p in PRIORITIES" :key="p.value" :value="p.value">
               {{ p.label }}
             </option>
@@ -162,6 +168,7 @@ defineExpose({ open });
         </div>
         <Input
           v-model="related"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_TICKETS.RELATED')"
           data-test="related"
           type="number"
           min="1"
@@ -171,6 +178,7 @@ defineExpose({ open });
       </div>
       <Input
         v-model="seller"
+        v-tooltip.top="$t('TOOLTIPS.CAKTO_TICKETS.SELLER')"
         data-test="seller"
         :label="$t('CAKTO_TICKETS.FORM.SELLER.LABEL')"
         :placeholder="$t('CAKTO_TICKETS.FORM.SELLER.PLACEHOLDER')"

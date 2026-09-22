@@ -51,6 +51,22 @@
       "OPEN_PROFILE": "Open the full contact profile",
       "SECTION_HEADER": "Click to open or close. Drag to reorder",
       "DELETE_NOTE": "Delete this note"
+    },
+    "CAKTO_TICKETS": {
+      "TEAM": "Cakto team that will receive and answer the request",
+      "PRIORITY": "Urgency for the team. Urgent goes first in the queue",
+      "RELATED": "Number of the customer conversation that originated the request",
+      "SELLER": "Seller the request is about, so the team can find it"
+    },
+    "CAKTO_SLA": {
+      "FIRST_RESPONSE": "Deadline, in minutes, for the team's first reply",
+      "RESOLUTION": "Deadline, in minutes, to resolve the conversation",
+      "INBOXES": "Inboxes this deadline applies to. Each inbox fits only one active policy",
+      "ACTIVE": "Only an active policy counts deadlines on conversations",
+      "REPORT_INBOX_FILTER": "Show only conversations from one inbox",
+      "REPORT_FIRST_RESPONSE": "On time among measured ones. Measured means it already got a first reply or already breached",
+      "REPORT_RESOLUTION": "On time among measured ones. Measured means already resolved or already breached",
+      "REPORT_PENDING": "Deadlines still running: not replied or resolved yet and not breached"
     }
   }
 }
