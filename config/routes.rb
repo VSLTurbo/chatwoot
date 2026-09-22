@@ -289,6 +289,10 @@ Rails.application.routes.draw do
             end
           end
 
+          resources :cakto_sla_policies, only: [:index, :show, :create, :update, :destroy]
+          namespace :cakto_sla do
+            resource :report, only: [:show]
+          end
           resources :custom_attribute_definitions, only: [:index, :show, :create, :update, :destroy]
           resources :custom_filters, only: [:index, :show, :create, :update, :destroy]
           resource :branded_email_layout, only: [:show, :update]
