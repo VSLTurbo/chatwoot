@@ -33,6 +33,6 @@ class Api::V1::Accounts::CaktoSlaPoliciesController < Api::V1::Accounts::BaseCon
   end
 
   def permitted_payload
-    params.require(:cakto_sla_policy).permit(:name, :description, :first_response_minutes, :resolution_minutes, :active, inbox_ids: [])
+    params.require(:cakto_sla_policy).permit(:name, :description, :first_response_minutes, :resolution_minutes, :active, inbox_ids: [], team_ids: [])
   end
 end

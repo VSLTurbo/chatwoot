@@ -4,6 +4,7 @@ json.description resource.description
 json.first_response_minutes resource.first_response_minutes
 json.resolution_minutes resource.resolution_minutes
 json.inbox_ids resource.inbox_ids
+json.team_ids resource.team_ids
 json.active resource.active
 json.created_at resource.created_at.to_i
 json.updated_at resource.updated_at.to_i

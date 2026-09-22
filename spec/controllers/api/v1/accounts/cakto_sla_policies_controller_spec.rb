@@ -5,6 +5,7 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
   let(:agent) { create(:user, account: account, role: :agent) }
   let(:admin) { create(:user, account: account, role: :administrator) }
   let(:inbox) { create(:inbox, account: account) }
+  let(:team) { create(:team, account: account) }
 
   before { account.enable_features!('cakto_sla') }
 
@@ -15,7 +16,7 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
     end
 
     it 'returns the policies of the account for an agent' do
-      policy = create(:cakto_sla_policy, account: account, inbox_ids: [inbox.id])
+      policy = create(:cakto_sla_policy, account: account, inbox_ids: [inbox.id], team_ids: [team.id])
       create(:cakto_sla_policy)
 
       get "/api/v1/accounts/#{account.id}/cakto_sla_policies", headers: agent.create_new_auth_token, as: :json
@@ -23,8 +24,8 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
       expect(response).to have_http_status(:success)
       body = response.parsed_body
       expect(body.size).to eq(1)
-      expect(body.first).to include('id' => policy.id, 'name' => policy.name, 'inbox_ids' => [inbox.id], 'active' => true,
-                                    'first_response_minutes' => 15, 'resolution_minutes' => 480)
+      expect(body.first).to include('id' => policy.id, 'name' => policy.name, 'inbox_ids' => [inbox.id], 'team_ids' => [team.id],
+                                    'active' => true, 'first_response_minutes' => 15, 'resolution_minutes' => 480)
       expect(body.first['created_at']).to eq(policy.created_at.to_i)
     end
 
@@ -59,7 +60,7 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
   describe 'POST /api/v1/accounts/{account.id}/cakto_sla_policies' do
     let(:payload) do
       { cakto_sla_policy: { name: 'Suporte padrão', description: 'Fila principal', first_response_minutes: 15,
-                            resolution_minutes: 480, inbox_ids: [inbox.id], active: true } }
+                            resolution_minutes: 480, inbox_ids: [inbox.id], team_ids: [team.id], active: true } }
     end
 
     it 'creates the policy for an administrator' do
@@ -68,7 +69,7 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
       end.to change(CaktoSlaPolicy, :count).by(1)
 
       expect(response).to have_http_status(:success)
-      expect(response.parsed_body).to include('name' => 'Suporte padrão', 'inbox_ids' => [inbox.id])
+      expect(response.parsed_body).to include('name' => 'Suporte padrão', 'inbox_ids' => [inbox.id], 'team_ids' => [team.id])
     end
 
     it 'is forbidden for an agent' do
