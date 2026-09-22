@@ -88,10 +88,12 @@
       },
       "BY_INBOX": "By inbox",
       "BY_AGENT": "By agent",
+      "BY_TEAM": "By team",
       "UNASSIGNED": "Unassigned",
       "TABLE": {
         "INBOX": "Inbox",
         "AGENT": "Agent",
+        "TEAM": "Team",
         "CONVERSATIONS": "Conversations",
         "FIRST_RESPONSE": "First response on time",
         "RESOLUTION": "Resolution on time",

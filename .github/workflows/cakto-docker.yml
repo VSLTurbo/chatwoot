@@ -1,4 +1,4 @@
-# Imagem própria do fork (edição EE, igual à chatwoot/chatwoot:vX oficial que roda em produção).
+# Imagem própria do fork (edição Community: sem o código Enterprise nem cobrança).
 # Publica em ghcr.io/vslturbo/chatwoot:cakto e :cakto-<sha7>. Só linux/amd64 (droplet é amd64).
 name: Publicar imagem Docker (cakto)
 
@@ -22,9 +22,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Definir edição (EE, como a imagem oficial)
-        run: echo -en '\nENV CW_EDITION="ee"' >> docker/Dockerfile
 
       - name: Tags
         run: echo "SHA7=${GITHUB_SHA::7}" >> "$GITHUB_ENV"

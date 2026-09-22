@@ -191,5 +191,31 @@ const pending = row =>
         </template>
       </BaseTable>
     </section>
+
+    <section class="flex flex-col gap-2">
+      <h3 class="text-heading-3 text-n-slate-12">
+        {{ $t('CAKTO_SLA.REPORT.BY_TEAM') }}
+      </h3>
+      <BaseTable
+        :headers="tableHeaders($t('CAKTO_SLA.REPORT.TABLE.TEAM'))"
+        :items="report?.by_team || []"
+        :loading="uiFlags.isFetchingReport"
+        :no-data-message="$t('CAKTO_SLA.REPORT.EMPTY')"
+      >
+        <template #row="{ items }">
+          <BaseTableRow v-for="row in items" :key="row.team_id" :item="row">
+            <BaseTableCell>
+              <span class="text-body-main text-n-slate-12">
+                {{ row.team_name }}
+              </span>
+            </BaseTableCell>
+            <BaseTableCell>{{ row.conversations }}</BaseTableCell>
+            <BaseTableCell>{{ ratio(row.first_response) }}</BaseTableCell>
+            <BaseTableCell>{{ ratio(row.resolution) }}</BaseTableCell>
+            <BaseTableCell>{{ pending(row) }}</BaseTableCell>
+          </BaseTableRow>
+        </template>
+      </BaseTable>
+    </section>
   </div>
 </template>

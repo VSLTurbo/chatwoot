@@ -4,7 +4,6 @@ import { OnClickOutside } from '@vueuse/components';
 import { useRoute } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useMapGetter } from 'dashboard/composables/store.js';
-import { usePolicy } from 'dashboard/composables/usePolicy';
 import Button from 'dashboard/components-next/button/Button.vue';
 import BackButton from 'dashboard/components/widgets/BackButton.vue';
 import PaginationFooter from 'dashboard/components-next/pagination/PaginationFooter.vue';
@@ -13,7 +12,7 @@ import Policy from 'dashboard/components/policy.vue';
 import AssistantSwitcher from 'dashboard/components-next/captain/pageComponents/switcher/AssistantSwitcher.vue';
 import CreateAssistantDialog from 'dashboard/components-next/captain/pageComponents/assistant/CreateAssistantDialog.vue';
 
-const props = defineProps({
+defineProps({
   currentPage: {
     type: Number,
     default: 1,
@@ -77,7 +76,6 @@ const emit = defineEmits(['click', 'close', 'update:currentPage']);
 const { t } = useI18n();
 
 const route = useRoute();
-const { shouldShowPaywall } = usePolicy();
 
 const showAssistantSwitcherDropdown = ref(false);
 const createAssistantDialogRef = ref(null);
@@ -94,10 +92,6 @@ const activeAssistantName = computed(() => {
       assistant => assistant.id === Number(currentAssistantId.value)
     )?.name || t('CAPTAIN.ASSISTANT_SWITCHER.NEW_ASSISTANT')
   );
-});
-
-const showPaywall = computed(() => {
-  return shouldShowPaywall(props.featureFlag);
 });
 
 const handleButtonClick = () => {
@@ -127,10 +121,7 @@ const handleCreateAssistant = () => {
         >
           <div class="flex gap-3 items-center">
             <BackButton v-if="backUrl" :back-url="backUrl" />
-            <div
-              v-if="showAssistantSwitcher && !showPaywall"
-              class="flex items-center gap-2"
-            >
+            <div v-if="showAssistantSwitcher" class="flex items-center gap-2">
               <div class="flex items-center gap-2">
                 <span
                   v-if="!isFetchingAssistants"
@@ -167,7 +158,7 @@ const handleCreateAssistant = () => {
             </div>
             <div class="flex items-center gap-4">
               <div
-                v-if="showAssistantSwitcher && !showPaywall && headerTitle"
+                v-if="showAssistantSwitcher && headerTitle"
                 class="w-0.5 h-4 rounded-2xl bg-n-weak"
               />
               <span
@@ -190,11 +181,11 @@ const handleCreateAssistant = () => {
             <slot name="headerActions" />
             <slot name="search" />
             <div
-              v-if="!showPaywall && buttonLabel"
+              v-if="buttonLabel"
               v-on-clickaway="() => emit('close')"
               class="relative group/captain-button"
             >
-              <Policy :permissions="buttonPolicy">
+              <Policy :permissions="buttonPolicy" :feature-flag="featureFlag">
                 <Button
                   :label="buttonLabel"
                   icon="i-lucide-plus"
@@ -212,15 +203,12 @@ const handleCreateAssistant = () => {
     </header>
     <main class="flex-1 px-6 overflow-y-auto">
       <div class="w-full h-full py-4 mx-auto" :class="containerClass">
-        <slot v-if="!showPaywall" name="controls" />
+        <slot name="controls" />
         <div
           v-if="isFetching"
           class="flex items-center justify-center py-10 text-n-slate-11"
         >
           <Spinner />
-        </div>
-        <div v-else-if="showPaywall">
-          <slot name="paywall" />
         </div>
         <div v-else-if="isEmpty">
           <slot name="emptyState" />

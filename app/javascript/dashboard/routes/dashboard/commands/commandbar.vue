@@ -1,6 +1,6 @@
 <script setup>
 import '@chatwoot/ninja-keys';
-import { ref, toRef, computed, watch, watchEffect, onMounted } from 'vue';
+import { ref, computed, watch, watchEffect, onMounted } from 'vue';
 import { useStore } from 'dashboard/composables/store';
 import { useTrack } from 'dashboard/composables';
 import { useI18n } from 'vue-i18n';
@@ -26,13 +26,6 @@ import {
 } from 'dashboard/helper/commandbar/events';
 import { emitter } from 'shared/helpers/mitt';
 
-const props = defineProps({
-  isPaywalled: {
-    type: Boolean,
-    default: false,
-  },
-});
-
 const store = useStore();
 const { t, tm } = useI18n();
 const { resolvedLocale } = useLocale();
@@ -47,9 +40,7 @@ const selectedSnoozeType = ref(null);
 
 const { goToAppearanceHotKeys } = useAppearanceHotKeys();
 const { inboxHotKeys } = useInboxHotKeys();
-const { goToCommandHotKeys } = useGoToCommandHotKeys(
-  toRef(props, 'isPaywalled')
-);
+const { goToCommandHotKeys } = useGoToCommandHotKeys();
 const { bulkActionsHotKeys } = useBulkActionsHotKeys();
 const { conversationHotKeys } = useConversationHotKeys();
 const {
@@ -89,10 +80,6 @@ const placeholder = computed(() =>
 const SNOOZE_PRESET_IDS = new Set(Object.values(wootConstants.SNOOZE_OPTIONS));
 
 const hotKeys = computed(() => {
-  if (props.isPaywalled) {
-    return [...goToAppearanceHotKeys.value, ...goToCommandHotKeys.value];
-  }
-
   const allActions = [
     ...dynamicSnoozeActions.value,
     ...inboxHotKeys.value,

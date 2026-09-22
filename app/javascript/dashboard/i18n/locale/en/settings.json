@@ -382,6 +382,7 @@
     "SLA": "SLA",
     "CAKTO_SLA": "SLA",
     "REPORTS_CAKTO_SLA": "SLA",
+    "CAKTO_TICKETS": "New internal ticket",
     "CUSTOM_ROLES": "Custom Roles",
     "BETA": "Beta",
     "REPORTS_OVERVIEW": "Overview",

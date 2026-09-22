@@ -2,7 +2,6 @@
 import { computed } from 'vue';
 import { useToggle } from '@vueuse/core';
 import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
 import { useMapGetter } from 'dashboard/composables/store';
 import { useAccount } from 'dashboard/composables/useAccount';
 import { useAlert } from 'dashboard/composables';
@@ -10,9 +9,8 @@ import Button from 'dashboard/components-next/button/Button.vue';
 import DropdownMenu from 'dashboard/components-next/dropdown-menu/DropdownMenu.vue';
 import ConversationRequiredAttributeItem from 'dashboard/components-next/ConversationWorkflow/ConversationRequiredAttributeItem.vue';
 import ConversationRequiredEmpty from 'dashboard/components-next/Conversation/ConversationRequiredEmpty.vue';
-import BasePaywallModal from 'dashboard/routes/dashboard/settings/components/BasePaywallModal.vue';
 
-const props = defineProps({
+defineProps({
   isEnabled: {
     type: Boolean,
     default: false,
@@ -20,29 +18,13 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['click']);
-const router = useRouter();
 const { t } = useI18n();
-const { currentAccount, accountId, isOnChatwootCloud, updateAccount } =
-  useAccount();
+const { currentAccount, updateAccount } = useAccount();
 const [showDropdown, toggleDropdown] = useToggle(false);
 const [isSaving, toggleSaving] = useToggle(false);
 const conversationAttributes = useMapGetter(
   'attributes/getConversationAttributes'
 );
-const currentUser = useMapGetter('getCurrentUser');
-
-const isSuperAdmin = computed(() => currentUser.value.type === 'SuperAdmin');
-const showPaywall = computed(() => !props.isEnabled && isOnChatwootCloud.value);
-const i18nKey = computed(() =>
-  isOnChatwootCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
-);
-
-const goToBillingSettings = () => {
-  router.push({
-    name: 'billing_settings_index',
-    params: { accountId: accountId.value },
-  });
-};
 
 const handleClick = () => {
   emit('click');
@@ -122,7 +104,7 @@ const handleDelete = attribute => {
 
 <template>
   <div
-    v-if="isEnabled || showPaywall"
+    v-if="isEnabled"
     class="flex flex-col w-full outline-1 outline outline-n-container rounded-xl bg-n-solid-2 divide-y divide-n-weak"
     @click="handleClick"
   >
@@ -136,7 +118,7 @@ const handleDelete = attribute => {
             {{ $t('CONVERSATION_WORKFLOW.REQUIRED_ATTRIBUTES.DESCRIPTION') }}
           </p>
         </div>
-        <div v-if="isEnabled" v-on-clickaway="closeDropdown" class="relative">
+        <div v-on-clickaway="closeDropdown" class="relative">
           <Button
             icon="i-lucide-circle-plus"
             :label="$t('CONVERSATION_WORKFLOW.REQUIRED_ATTRIBUTES.ADD.TITLE')"
@@ -160,27 +142,15 @@ const handleDelete = attribute => {
       </div>
     </div>
 
-    <template v-if="isEnabled">
-      <ConversationRequiredEmpty
-        v-if="conversationRequiredAttributes.length === 0"
-      />
+    <ConversationRequiredEmpty
+      v-if="conversationRequiredAttributes.length === 0"
+    />
 
-      <ConversationRequiredAttributeItem
-        v-for="attribute in conversationRequiredAttributes"
-        :key="attribute.value"
-        :attribute="attribute"
-        @delete="handleDelete"
-      />
-    </template>
-
-    <BasePaywallModal
-      v-else
-      class="mx-auto my-8"
-      feature-prefix="CONVERSATION_WORKFLOW.REQUIRED_ATTRIBUTES"
-      :i18n-key="i18nKey"
-      :is-on-chatwoot-cloud="isOnChatwootCloud"
-      :is-super-admin="isSuperAdmin"
-      @upgrade="goToBillingSettings"
+    <ConversationRequiredAttributeItem
+      v-for="attribute in conversationRequiredAttributes"
+      :key="attribute.value"
+      :attribute="attribute"
+      @delete="handleDelete"
     />
   </div>
 </template>

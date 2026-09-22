@@ -38,6 +38,7 @@ import inboxes from './modules/inboxes';
 import inboxMembers from './modules/inboxMembers';
 import integrations from './modules/integrations';
 import caktoSla from './modules/caktoSla';
+import caktoTickets from './modules/caktoTickets';
 import labels from './modules/labels';
 import macros from './modules/macros';
 import notifications from './modules/notifications';
@@ -106,6 +107,7 @@ export default createStore({
     inboxMembers,
     integrations,
     caktoSla,
+    caktoTickets,
     labels,
     macros,
     notifications,

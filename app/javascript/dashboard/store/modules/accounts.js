@@ -5,7 +5,6 @@ import OnboardingAPI from '../../api/onboarding';
 import { differenceInDays } from 'date-fns';
 import EnterpriseAccountAPI from '../../api/enterprise/account';
 import WhatsappChannel from '../../api/channel/whatsappChannel';
-import { throwErrorMessage } from '../utils/api';
 import { getLanguageDirection } from 'dashboard/components/widgets/conversation/advancedFilterItems/languages';
 
 const findRecordById = ($state, id) =>
@@ -19,8 +18,6 @@ const state = {
     isFetching: false,
     isFetchingItem: false,
     isUpdating: false,
-    isCheckoutInProcess: false,
-    isFetchingLimits: false,
   },
 };
 
@@ -141,54 +138,6 @@ export const actions = {
     }
   },
 
-  checkout: async ({ commit }) => {
-    commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: true });
-    try {
-      const response = await EnterpriseAccountAPI.checkout();
-      window.location = response.data.redirect_url;
-    } catch (error) {
-      throwErrorMessage(error);
-    } finally {
-      commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: false });
-    }
-  },
-
-  subscription: async ({ commit }) => {
-    commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: true });
-    try {
-      const response = await EnterpriseAccountAPI.subscription();
-      return response.data;
-    } catch (error) {
-      throwErrorMessage(error);
-      return null;
-    } finally {
-      commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: false });
-    }
-  },
-
-  selectBillingCurrency: async ({ commit }, currency) => {
-    commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: true });
-    try {
-      await EnterpriseAccountAPI.selectBillingCurrency(currency);
-    } catch (error) {
-      throwErrorMessage(error);
-    } finally {
-      commit(types.default.SET_ACCOUNT_UI_FLAG, { isCheckoutInProcess: false });
-    }
-  },
-
-  limits: async ({ commit }) => {
-    commit(types.default.SET_ACCOUNT_UI_FLAG, { isFetchingLimits: true });
-    try {
-      const response = await EnterpriseAccountAPI.getLimits();
-      commit(types.default.SET_ACCOUNT_LIMITS, response.data);
-    } catch (error) {
-      // silent error
-    } finally {
-      commit(types.default.SET_ACCOUNT_UI_FLAG, { isFetchingLimits: false });
-    }
-  },
-
   getCacheKeys: async () => {
     return AccountAPI.getCacheKeys();
   },
@@ -203,7 +152,6 @@ export const mutations = {
   },
   [types.default.ADD_ACCOUNT]: MutationHelpers.setSingleRecord,
   [types.default.EDIT_ACCOUNT]: MutationHelpers.update,
-  [types.default.SET_ACCOUNT_LIMITS]: MutationHelpers.updateAttributes,
 };
 
 export default {

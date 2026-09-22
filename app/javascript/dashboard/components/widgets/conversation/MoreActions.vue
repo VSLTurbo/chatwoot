@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onUnmounted } from 'vue';
+import { computed, onUnmounted, ref } from 'vue';
 import { useToggle } from '@vueuse/core';
 import { useStore } from 'vuex';
 import { useAlert } from 'dashboard/composables';
@@ -9,6 +9,8 @@ import EmailTranscriptModal from './EmailTranscriptModal.vue';
 import ResolveAction from '../../buttons/ResolveAction.vue';
 import ButtonV4 from 'dashboard/components-next/button/Button.vue';
 import DropdownMenu from 'dashboard/components-next/dropdown-menu/DropdownMenu.vue';
+import NovoTicketDialog from 'dashboard/components-next/CaktoTickets/NovoTicketDialog.vue';
+import { FEATURE_FLAGS } from 'dashboard/featureFlags';
 
 import {
   CMD_MUTE_CONVERSATION,
@@ -24,6 +26,13 @@ const [showEmailActionsModal, toggleEmailModal] = useToggle(false);
 const [showActionsDropdown, toggleDropdown] = useToggle(false);
 
 const currentChat = computed(() => store.getters.getSelectedChat);
+const hasCaktoTickets = computed(() =>
+  store.getters['accounts/isFeatureEnabledonAccount'](
+    store.getters.getCurrentAccountId,
+    FEATURE_FLAGS.CAKTO_TICKETS
+  )
+);
+const novoTicketRef = ref(null);
 
 const actionMenuItems = computed(() => {
   const items = [];
@@ -51,6 +60,15 @@ const actionMenuItems = computed(() => {
     value: 'send_transcript',
   });
 
+  if (hasCaktoTickets.value) {
+    items.push({
+      icon: 'i-lucide-ticket-plus',
+      label: t('CAKTO_TICKETS.HEADER_ACTION'),
+      action: 'cakto_ticket',
+      value: 'cakto_ticket',
+    });
+  }
+
   return items;
 });
 
@@ -65,6 +83,8 @@ const handleActionClick = ({ action }) => {
     useAlert(t('CONTACT_PANEL.UNMUTED_SUCCESS'));
   } else if (action === 'send_transcript') {
     toggleEmailModal();
+  } else if (action === 'cakto_ticket') {
+    novoTicketRef.value?.open();
   }
 };
 
@@ -121,6 +141,11 @@ onUnmounted(() => {
       :show="showEmailActionsModal"
       :current-chat="currentChat"
       @cancel="toggleEmailModal"
+    />
+    <NovoTicketDialog
+      v-if="hasCaktoTickets"
+      ref="novoTicketRef"
+      :related-conversation-id="currentChat.id"
     />
   </div>
 </template>

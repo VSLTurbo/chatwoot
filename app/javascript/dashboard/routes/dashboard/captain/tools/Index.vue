@@ -16,7 +16,7 @@ import Dialog from 'dashboard/components-next/dialog/Dialog.vue';
 
 const store = useStore();
 const { t } = useI18n();
-const { isFeatureFlagEnabled, shouldShowPaywall } = usePolicy();
+const { isFeatureFlagEnabled } = usePolicy();
 
 const SOFT_LIMIT = 10;
 const isV2 = computed(() => isFeatureFlagEnabled(FEATURE_FLAGS.CAPTAIN_V2));
@@ -177,11 +177,7 @@ const onDeleteSuccess = () => {
   }
 };
 
-onMounted(() => {
-  if (!shouldShowPaywall(FEATURE_FLAGS.CAPTAIN_CUSTOM_TOOLS)) {
-    fetchCustomTools();
-  }
-});
+onMounted(fetchCustomTools);
 </script>
 
 <template>

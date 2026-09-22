@@ -3,12 +3,14 @@ class CaktoSla::ReportService
 
   # ponytail: agrega em Ruby sobre um pluck único; trocar por GROUP BY se o período passar de ~100k conversas
   def perform
-    rows = scope.pluck('conversations.inbox_id', 'conversations.assignee_id', :first_response_status, :resolution_status)
+    rows = scope.pluck('conversations.inbox_id', 'conversations.assignee_id', 'conversations.team_id',
+                       :first_response_status, :resolution_status)
 
     {
       totals: summarize(rows),
       by_inbox: grouped(rows, 0, account.inboxes) { |inbox| { inbox_id: inbox.id, inbox_name: inbox.name } },
-      by_agent: grouped(rows, 1, account.users) { |user| { assignee_id: user.id, name: user.name } }
+      by_agent: grouped(rows, 1, account.users) { |user| { assignee_id: user.id, name: user.name } },
+      by_team: grouped(rows, 2, account.teams) { |team| { team_id: team.id, team_name: team.name } }
     }
   end
 
@@ -30,8 +32,8 @@ class CaktoSla::ReportService
   def summarize(rows)
     {
       conversations: rows.size,
-      first_response: bucket(rows.pluck(2)),
-      resolution: bucket(rows.pluck(3))
+      first_response: bucket(rows.pluck(3)),
+      resolution: bucket(rows.pluck(4))
     }
   end
 
