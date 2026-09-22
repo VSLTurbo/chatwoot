@@ -1056,22 +1056,20 @@ const menuItems = computed(() => {
             />
           </template>
         </ComposeConversation>
-        <template v-if="hasCaktoTickets">
-          <Button
-            icon="i-lucide-ticket-plus"
-            color="slate"
-            size="sm"
-            class="dark:hover:!bg-n-slate-9/30"
-            :class="
-              isEffectivelyCollapsed
-                ? '!size-8 !outline-n-weak !text-n-slate-11'
-                : '!h-7 !outline-n-weak !text-n-slate-11'
-            "
-            :title="t('SIDEBAR.CAKTO_TICKETS')"
-            @click="novoTicketRef?.open()"
-          />
-          <NovoTicketDialog ref="novoTicketRef" />
-        </template>
+      </div>
+      <!-- Ticket interno (Cakto): botão com nome, e não só um ícone ao lado do
+           lápis. O Ítalo não achou a versão só com ícone (22/09/2026). -->
+      <div v-if="hasCaktoTickets" class="flex mt-2">
+        <Button
+          icon="i-lucide-ticket-plus"
+          :label="isEffectivelyCollapsed ? '' : t('SIDEBAR.CAKTO_TICKETS')"
+          color="blue"
+          size="sm"
+          :class="isEffectivelyCollapsed ? '!size-8' : 'w-full'"
+          :title="t('SIDEBAR.CAKTO_TICKETS')"
+          @click="novoTicketRef?.open()"
+        />
+        <NovoTicketDialog ref="novoTicketRef" />
       </div>
     </section>
     <nav
