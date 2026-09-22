@@ -1,0 +1,44 @@
+{
+  "CAKTO_TICKETS": {
+    "BADGE": "Ticket interno",
+    "HEADER_ACTION": "Abrir ticket interno",
+    "FORM": {
+      "TITLE": "Novo ticket interno",
+      "DESCRIPTION": "Abre uma conversa para outra área da Cakto. Você é o solicitante e a área responde por aqui mesmo.",
+      "TEAM": { "LABEL": "Área", "PLACEHOLDER": "Escolha a área" },
+      "TICKET_TITLE": {
+        "LABEL": "Título",
+        "PLACEHOLDER": "Ex.: Estorno travado no seller X"
+      },
+      "TICKET_DESCRIPTION": {
+        "LABEL": "Descrição",
+        "PLACEHOLDER": "O que aconteceu e o que você precisa da área"
+      },
+      "PRIORITY": {
+        "LABEL": "Prioridade",
+        "LOW": "Baixa",
+        "MEDIUM": "Média",
+        "HIGH": "Alta",
+        "URGENT": "Urgente"
+      },
+      "SELLER": {
+        "LABEL": "Seller (opcional)",
+        "PLACEHOLDER": "Nome ou e-mail do seller"
+      },
+      "RELATED": {
+        "LABEL": "Conversa relacionada (opcional)",
+        "PLACEHOLDER": "Número da conversa, ex.: 1234"
+      },
+      "ERRORS": {
+        "TEAM": "Escolha a área que vai atender",
+        "TITLE": "Informe um título",
+        "DESCRIPTION": "Descreva o pedido"
+      },
+      "CANCEL": "Cancelar",
+      "SUBMIT": "Abrir ticket",
+      "SUCCESS": "Ticket interno aberto",
+      "ERROR": "Não foi possível abrir o ticket. Tente de novo.",
+      "SETUP_ERROR": "Não foi possível carregar as áreas."
+    }
+  }
+}
