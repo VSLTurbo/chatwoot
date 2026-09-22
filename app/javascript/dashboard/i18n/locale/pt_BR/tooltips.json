@@ -1,0 +1,15 @@
+{
+  "TOOLTIPS": {
+    "SIDEBAR": {
+      "NEW_CONVERSATION": "Iniciar conversa com um contato",
+      "NEW_TICKET": "Abrir ticket interno para outra área",
+      "SEARCH": "Buscar conversas, contatos e mensagens",
+      "SWITCH_ACCOUNT": "Trocar de conta",
+      "PROFILE_MENU": "Perfil, status e sair",
+      "COLLAPSE_SECTION": "Recolher esta seção",
+      "EXPAND_SECTION": "Expandir esta seção",
+      "RESIZE": "Arraste para ajustar a largura. Clique duas vezes para recolher ou expandir a barra",
+      "CHANGELOG": "Novidades do sistema"
+    }
+  }
+}

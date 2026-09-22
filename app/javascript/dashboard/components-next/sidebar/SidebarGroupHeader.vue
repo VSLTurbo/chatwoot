@@ -79,6 +79,7 @@ const onClick = event => {
     <span
       v-if="expandable"
       v-show="isExpanded"
+      v-tooltip="$t('TOOLTIPS.SIDEBAR.COLLAPSE_SECTION')"
       class="i-lucide-chevron-up size-3"
       @click.stop.prevent="emit('toggle')"
     />

@@ -56,9 +56,11 @@ const emitNewAccount = () => {
       <!-- Collapsed view: Logo trigger -->
       <button
         v-if="isCollapsed"
+        v-tooltip.right="
+          `${currentAccount.name}. ${t('TOOLTIPS.SIDEBAR.SWITCH_ACCOUNT')}`
+        "
         class="grid flex-shrink-0 place-content-center p-2 rounded-lg cursor-pointer hover:bg-n-alpha-1"
         :class="{ 'bg-n-alpha-1': isOpen }"
-        :title="currentAccount.name"
         @click="toggle"
       >
         <Logo class="size-7" />
@@ -67,6 +69,9 @@ const emitNewAccount = () => {
       <button
         v-else
         id="sidebar-account-switcher"
+        v-tooltip.bottom="
+          showAccountSwitcher ? t('TOOLTIPS.SIDEBAR.SWITCH_ACCOUNT') : undefined
+        "
         :data-account-id="accountId"
         aria-haspopup="listbox"
         aria-controls="account-options"

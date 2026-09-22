@@ -1,0 +1,15 @@
+{
+  "TOOLTIPS": {
+    "SIDEBAR": {
+      "NEW_CONVERSATION": "Start a conversation with a contact",
+      "NEW_TICKET": "Open an internal ticket for another team",
+      "SEARCH": "Search conversations, contacts and messages",
+      "SWITCH_ACCOUNT": "Switch account",
+      "PROFILE_MENU": "Profile, status and sign out",
+      "COLLAPSE_SECTION": "Collapse this section",
+      "EXPAND_SECTION": "Expand this section",
+      "RESIZE": "Drag to resize. Double-click to collapse or expand the sidebar",
+      "CHANGELOG": "What's new"
+    }
+  }
+}
