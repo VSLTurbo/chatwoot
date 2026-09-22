@@ -9,6 +9,7 @@
 #  inbox_ids              :integer          default([]), not null, is an Array
 #  name                   :string           not null
 #  resolution_minutes     :integer
+#  team_ids               :integer          default([]), not null, is an Array
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  account_id             :bigint           not null
@@ -22,25 +23,30 @@
 #  fk_rails_...  (account_id => accounts.id) ON DELETE => cascade
 #
 class CaktoSlaPolicy < ApplicationRecord
+  TARGETS = { inbox_ids: 'caixa de entrada', team_ids: 'equipe' }.freeze
+
   belongs_to :account
   has_many :conversation_slas, class_name: 'CaktoConversationSla', dependent: :delete_all
 
   scope :active, -> { where(active: true) }
   scope :covering_inbox, ->(inbox_id) { where('? = ANY(inbox_ids)', inbox_id) }
+  scope :covering_team, ->(team_id) { where('? = ANY(team_ids)', team_id) }
 
-  before_validation :normalize_inbox_ids
+  before_validation :normalize_target_ids
 
   validates :name, presence: true
   validates :first_response_minutes, :resolution_minutes,
             numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
   validate :at_least_one_target
   validate :inboxes_belong_to_account
-  validate :inboxes_not_covered_by_another_active_policy
+  validate :teams_belong_to_account
+  validate :targets_not_covered_by_another_active_policy
 
   private
 
-  def normalize_inbox_ids
+  def normalize_target_ids
     self.inbox_ids = Array(inbox_ids).compact.uniq
+    self.team_ids = Array(team_ids).compact.uniq
   end
 
   def at_least_one_target
@@ -56,11 +62,22 @@ class CaktoSlaPolicy < ApplicationRecord
     errors.add(:inbox_ids, 'contém caixa de entrada que não pertence à conta')
   end
 
-  def inboxes_not_covered_by_another_active_policy
-    return unless active? && inbox_ids.any?
+  def teams_belong_to_account
+    return if team_ids.empty? || account.nil?
+    return if account.teams.where(id: team_ids).count == team_ids.size
 
-    conflict = CaktoSlaPolicy.active.where(account_id: account_id).where.not(id: id)
-                             .exists?(['inbox_ids && ARRAY[?]::integer[]', inbox_ids])
-    errors.add(:inbox_ids, 'contém caixa de entrada já coberta por outra política ativa') if conflict
+    errors.add(:team_ids, 'contém equipe que não pertence à conta')
+  end
+
+  def targets_not_covered_by_another_active_policy
+    return unless active?
+
+    others = CaktoSlaPolicy.active.where(account_id: account_id).where.not(id: id)
+    TARGETS.each do |column, label|
+      ids = public_send(column)
+      next if ids.empty?
+
+      errors.add(column, "contém #{label} já coberta por outra política ativa") if others.exists?(["#{column} && ARRAY[?]::integer[]", ids])
+    end
   end
 end
