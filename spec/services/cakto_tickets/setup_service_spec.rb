@@ -10,8 +10,8 @@ describe CaktoTickets::SetupService do
     expect(inbox.channel_type).to eq('Channel::Api')
     expect(inbox.channel.webhook_url).to be_nil
     definitions = account.custom_attribute_definitions.where(attribute_model: :conversation_attribute)
-    expect(definitions.pluck(:attribute_key)).to match_array(%w[cakto_ticket_titulo cakto_ticket_solicitante cakto_ticket_seller
-                                                                 cakto_ticket_origem])
+    chaves = %w[cakto_ticket_titulo cakto_ticket_solicitante cakto_ticket_seller cakto_ticket_origem]
+    expect(definitions.pluck(:attribute_key)).to match_array(chaves)
     expect(definitions.pluck(:attribute_display_type).uniq).to eq(['text'])
   end
 

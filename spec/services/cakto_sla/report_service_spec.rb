@@ -8,8 +8,8 @@ describe CaktoSla::ReportService do
   let(:policy) { create(:cakto_sla_policy, account: account) }
   let(:team) { create(:team, account: account, name: 'Compliance') }
 
-  def sla_for(inbox, first_response:, resolution:, assignee: nil, team: nil, created_at: 1.day.ago)
-    conversation = create(:conversation, account: account, inbox: inbox, assignee: assignee, team: team, created_at: created_at)
+  def sla_for(inbox, first_response:, resolution:, **conversa)
+    conversation = create(:conversation, account: account, inbox: inbox, created_at: 1.day.ago, **conversa)
     create(:cakto_conversation_sla, account: account, conversation: conversation, cakto_sla_policy: policy,
                                     first_response_status: first_response, resolution_status: resolution)
   end

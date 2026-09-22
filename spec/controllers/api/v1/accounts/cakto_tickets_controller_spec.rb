@@ -51,8 +51,8 @@ RSpec.describe 'Cakto Tickets API', type: :request do
       conversation = Conversation.last
       body = response.parsed_body
       expect(body['id']).to eq(conversation.display_id)
-      expect(body['priority']).to eq('urgent')
-      expect(body['additional_attributes']).to eq('cakto_ticket' => true, 'solicitante_user_id' => agent.id)
+      expect(body).to include('priority' => 'urgent',
+                              'additional_attributes' => { 'cakto_ticket' => true, 'solicitante_user_id' => agent.id })
       expect(body['custom_attributes']['cakto_ticket_titulo']).to eq('Seller bloqueado')
       expect(body['meta']['team']['id']).to eq(team.id)
       expect(body['meta']['sender']['email']).to eq('ana@cakto.com.br')
