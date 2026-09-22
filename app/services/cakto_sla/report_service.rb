@@ -23,12 +23,8 @@ class CaktoSla::ReportService
 
   def grouped(rows, index, records)
     groups = rows.group_by { |row| row[index] }
-    records.where(id: groups.keys.compact).filter_map do |record|
-      group = groups[record.id]
-      next if group.blank?
-
-      yield(record).merge(summarize(group))
-    end.sort_by { |item| -item[:conversations] }
+    items = records.where(id: groups.keys.compact).map { |record| yield(record).merge(summarize(groups[record.id])) }
+    items.sort_by { |item| -item[:conversations] }
   end
 
   def summarize(rows)
