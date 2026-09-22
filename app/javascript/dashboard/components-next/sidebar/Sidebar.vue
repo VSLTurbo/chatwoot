@@ -23,6 +23,7 @@ import EmojiIcon from 'next/emoji-icon-picker/EmojiIcon.vue';
 import SidebarAccountSwitcher from './SidebarAccountSwitcher.vue';
 import Logo from 'next/icon/Logo.vue';
 import ComposeConversation from 'dashboard/components-next/NewConversation/ComposeConversation.vue';
+import NovoTicketDialog from 'dashboard/components-next/CaktoTickets/NovoTicketDialog.vue';
 import {
   SIDEBAR_SORT_SECTIONS,
   getSidebarSortOptions,
@@ -76,6 +77,11 @@ const hasAdvancedAssignment = computed(() => {
     FEATURE_FLAGS.ADVANCED_ASSIGNMENT
   );
 });
+
+const hasCaktoTickets = computed(() =>
+  isFeatureEnabledonAccount.value(accountId.value, FEATURE_FLAGS.CAKTO_TICKETS)
+);
+const novoTicketRef = ref(null);
 
 const hasConversationUnreadCounts = computed(() => {
   return isFeatureEnabledonAccount.value(
@@ -1056,6 +1062,22 @@ const menuItems = computed(() => {
             />
           </template>
         </ComposeConversation>
+        <template v-if="hasCaktoTickets">
+          <Button
+            icon="i-lucide-ticket-plus"
+            color="slate"
+            size="sm"
+            class="dark:hover:!bg-n-slate-9/30"
+            :class="
+              isEffectivelyCollapsed
+                ? '!size-8 !outline-n-weak !text-n-slate-11'
+                : '!h-7 !outline-n-weak !text-n-slate-11'
+            "
+            :title="t('SIDEBAR.CAKTO_TICKETS')"
+            @click="novoTicketRef?.open()"
+          />
+          <NovoTicketDialog ref="novoTicketRef" />
+        </template>
       </div>
     </section>
     <nav
