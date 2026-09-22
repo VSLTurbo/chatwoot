@@ -279,3 +279,7 @@
   enabled: false
   premium: true
   column: feature_flags_ext_1
+- name: cakto_sla
+  display_name: Ticket e SLA da Cakto
+  enabled: true
+  column: feature_flags_ext_1

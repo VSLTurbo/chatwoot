@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_08_31_000000) do
+ActiveRecord::Schema[7.1].define(version: 2026_09_22_120000) do
   # These extensions should be enabled to support this database
   enable_extension "pg_stat_statements"
   enable_extension "pg_trgm"
@@ -318,6 +318,41 @@ ActiveRecord::Schema[7.1].define(version: 2026_08_31_000000) do
     t.boolean "active", default: true, null: false
     t.integer "execution_delay"
     t.index ["account_id"], name: "index_automation_rules_on_account_id"
+  end
+
+  create_table "cakto_conversation_slas", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.bigint "conversation_id", null: false
+    t.bigint "cakto_sla_policy_id", null: false
+    t.datetime "first_response_due_at"
+    t.datetime "resolution_due_at"
+    t.integer "first_response_status", default: 0, null: false
+    t.integer "resolution_status", default: 0, null: false
+    t.datetime "first_response_met_at"
+    t.datetime "resolution_met_at"
+    t.datetime "breached_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id", "first_response_status"], name: "index_cakto_conversation_slas_on_account_id_and_first_response_status"
+    t.index ["account_id", "resolution_status"], name: "index_cakto_conversation_slas_on_account_id_and_resolution_status"
+    t.index ["account_id"], name: "index_cakto_conversation_slas_on_account_id"
+    t.index ["cakto_sla_policy_id"], name: "index_cakto_conversation_slas_on_cakto_sla_policy_id"
+    t.index ["conversation_id"], name: "index_cakto_conversation_slas_on_conversation_id", unique: true
+    t.index ["first_response_due_at"], name: "index_cakto_conversation_slas_on_first_response_due_at"
+    t.index ["resolution_due_at"], name: "index_cakto_conversation_slas_on_resolution_due_at"
+  end
+
+  create_table "cakto_sla_policies", force: :cascade do |t|
+    t.bigint "account_id", null: false
+    t.string "name", null: false
+    t.text "description"
+    t.integer "first_response_minutes"
+    t.integer "resolution_minutes"
+    t.integer "inbox_ids", default: [], null: false, array: true
+    t.boolean "active", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["account_id"], name: "index_cakto_sla_policies_on_account_id"
   end
 
   create_table "calls", force: :cascade do |t|
@@ -1598,6 +1633,10 @@ ActiveRecord::Schema[7.1].define(version: 2026_08_31_000000) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cakto_conversation_slas", "accounts", on_delete: :cascade
+  add_foreign_key "cakto_conversation_slas", "cakto_sla_policies", on_delete: :cascade
+  add_foreign_key "cakto_conversation_slas", "conversations", on_delete: :cascade
+  add_foreign_key "cakto_sla_policies", "accounts", on_delete: :cascade
   add_foreign_key "campaign_recipients", "accounts", on_delete: :cascade
   add_foreign_key "campaign_recipients", "campaigns", on_delete: :cascade
   add_foreign_key "campaign_recipients", "contacts", on_delete: :cascade
