@@ -223,6 +223,7 @@ onMounted(() => {
           <div class="flex items-center gap-2 ms-2 shrink-0">
             <NextButton
               v-if="isImage"
+              v-tooltip="$t('TOOLTIPS.GALLERY.ZOOM_IN')"
               icon="i-lucide-zoom-in"
               slate
               ghost
@@ -230,6 +231,7 @@ onMounted(() => {
             />
             <NextButton
               v-if="isImage"
+              v-tooltip="$t('TOOLTIPS.GALLERY.ZOOM_OUT')"
               icon="i-lucide-zoom-out"
               slate
               ghost
@@ -237,6 +239,7 @@ onMounted(() => {
             />
             <NextButton
               v-if="isImage"
+              v-tooltip="$t('TOOLTIPS.GALLERY.ROTATE_LEFT')"
               icon="i-lucide-rotate-ccw"
               slate
               ghost
@@ -244,12 +247,14 @@ onMounted(() => {
             />
             <NextButton
               v-if="isImage"
+              v-tooltip="$t('TOOLTIPS.GALLERY.ROTATE_RIGHT')"
               icon="i-lucide-rotate-cw"
               slate
               ghost
               @click="onRotate('clockwise')"
             />
             <NextButton
+              v-tooltip="$t('TOOLTIPS.GALLERY.DOWNLOAD')"
               icon="i-lucide-download"
               slate
               ghost
@@ -257,7 +262,13 @@ onMounted(() => {
               :disabled="isDownloading"
               @click="onClickDownload"
             />
-            <NextButton icon="i-lucide-x" slate ghost @click="onClose" />
+            <NextButton
+              v-tooltip="$t('GENERAL.CLOSE')"
+              icon="i-lucide-x"
+              slate
+              ghost
+              @click="onClose"
+            />
           </div>
         </header>
 
@@ -265,6 +276,7 @@ onMounted(() => {
           <div class="flex items-center justify-center w-16 shrink-0">
             <NextButton
               v-if="hasMoreThanOneAttachment"
+              v-tooltip="$t('TOOLTIPS.GALLERY.PREV')"
               icon="ltr:i-lucide-chevron-left rtl:i-lucide-chevron-right"
               class="z-10"
               blue
@@ -333,6 +345,7 @@ onMounted(() => {
           <div class="flex items-center justify-center w-16 shrink-0">
             <NextButton
               v-if="hasMoreThanOneAttachment"
+              v-tooltip="$t('TOOLTIPS.GALLERY.NEXT')"
               icon="ltr:i-lucide-chevron-right rtl:i-lucide-chevron-left"
               class="z-10"
               blue

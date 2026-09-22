@@ -42,6 +42,7 @@ const openIssue = () => {
       <span class="w-px h-3 text-n-weak bg-n-weak" />
 
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.OPEN_NEW_TAB')"
         link
         xs
         slate
@@ -51,6 +52,13 @@ const openIssue = () => {
       />
     </div>
 
-    <Button ghost xs slate icon="i-lucide-unlink" @click="unlinkIssue" />
+    <Button
+      v-tooltip="$t('TOOLTIPS.COMMON.UNLINK')"
+      ghost
+      xs
+      slate
+      icon="i-lucide-unlink"
+      @click="unlinkIssue"
+    />
   </div>
 </template>

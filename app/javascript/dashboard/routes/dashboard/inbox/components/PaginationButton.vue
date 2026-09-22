@@ -43,6 +43,7 @@ export default {
   <div class="flex gap-2 items-center">
     <div class="flex gap-1 items-center">
       <NextButton
+        v-tooltip="$t('TOOLTIPS.PAGINATION.PREV')"
         icon="i-lucide-chevron-up"
         xs
         slate
@@ -51,6 +52,7 @@ export default {
         @click="handleUpClick"
       />
       <NextButton
+        v-tooltip="$t('TOOLTIPS.PAGINATION.NEXT')"
         icon="i-lucide-chevron-down"
         xs
         slate

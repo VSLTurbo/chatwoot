@@ -91,7 +91,14 @@ const handleFetchInboxes = () => {
             @click="handleEdit"
           />
           <div v-if="order" class="w-px h-2.5 bg-n-slate-5" />
-          <Button icon="i-lucide-trash" sm slate ghost @click="handleDelete" />
+          <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
+            icon="i-lucide-trash"
+            sm
+            slate
+            ghost
+            @click="handleDelete"
+          />
         </div>
       </div>
       <p class="text-n-slate-11 text-body-para line-clamp-1 mb-0 py-1">

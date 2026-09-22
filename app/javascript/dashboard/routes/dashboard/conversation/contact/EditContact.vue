@@ -56,7 +56,14 @@ useKeyboardEvents({
             {{ $t('EDIT_CONTACT.DESC') }}
           </p>
         </div>
-        <Button icon="i-lucide-x" slate ghost sm @click="onCancel" />
+        <Button
+          v-tooltip="$t('GENERAL.CLOSE')"
+          icon="i-lucide-x"
+          slate
+          ghost
+          sm
+          @click="onCancel"
+        />
       </div>
       <ContactForm
         :contact="contact"

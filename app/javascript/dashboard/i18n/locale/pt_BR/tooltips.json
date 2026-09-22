@@ -9,7 +9,9 @@
       "COLLAPSE_SECTION": "Recolher esta seção",
       "EXPAND_SECTION": "Expandir esta seção",
       "RESIZE": "Arraste para ajustar a largura. Clique duas vezes para recolher ou expandir a barra",
-      "CHANGELOG": "Novidades do sistema"
+      "CHANGELOG": "Novidades do sistema",
+      "OPEN_MENU": "Abrir o menu",
+      "CHANGE_STATUS": "Mudar seu status: online, ocupado ou offline"
     },
     "CONVERSATION": {
       "COPY_ID": "Copiar o número da conversa",
@@ -39,14 +41,25 @@
       "SEND_NOTE": "Salvar a nota. Só o time vê",
       "COPILOT": "Copiloto de IA: sugere e melhora a resposta",
       "TOGGLE_EDITOR_SIZE": "Aumentar ou reduzir a área de escrita",
-      "MODE_TOGGLE": "Responder vai para o contato. Nota privada só o time vê"
+      "MODE_TOGGLE": "Responder vai para o contato. Nota privada só o time vê",
+      "COPILOT_SEND": "Enviar a instrução ao copiloto"
     },
     "COMMON": {
       "COPY": "Copiar",
       "EDIT": "Editar",
       "SAVE": "Salvar",
       "DELETE": "Apagar",
-      "DRAG_TO_REORDER": "Arraste para mudar a ordem"
+      "DRAG_TO_REORDER": "Arraste para mudar a ordem",
+      "REMOVE": "Remover",
+      "DISMISS": "Dispensar",
+      "MORE_ACTIONS": "Mais ações",
+      "LIST_OPTIONS": "Opções da lista",
+      "MESSAGE_MORE": "Mais opções desta mensagem",
+      "OPEN": "Abrir",
+      "OPEN_NEW_TAB": "Abrir em nova aba",
+      "UNLINK": "Desvincular",
+      "REFRESH": "Atualizar",
+      "OPEN_COPILOT": "Abrir o copiloto de IA"
     },
     "CONTACT": {
       "OPEN_PROFILE": "Abrir a ficha completa do contato",
@@ -85,6 +98,22 @@
       "DELETE_SEGMENT": "Apagar este segmento",
       "MORE_ACTIONS": "Mais ações: importar e exportar",
       "SORT": "Ordenar a lista"
+    },
+    "PAGINATION": {
+      "FIRST": "Primeira página",
+      "PREV": "Anterior",
+      "NEXT": "Próxima",
+      "LAST": "Última página"
+    },
+    "GALLERY": {
+      "ZOOM_IN": "Aproximar",
+      "ZOOM_OUT": "Afastar",
+      "ROTATE_LEFT": "Girar para a esquerda",
+      "ROTATE_RIGHT": "Girar para a direita",
+      "DOWNLOAD": "Baixar",
+      "EXPAND": "Ampliar",
+      "PREV": "Arquivo anterior",
+      "NEXT": "Próximo arquivo"
     }
   }
 }

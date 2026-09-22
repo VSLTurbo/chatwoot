@@ -107,6 +107,7 @@ const redirectToPortalHomePage = () => {
             {{ t('HELP_CENTER.PORTAL_SWITCHER.PORTALS') }}
           </h2>
           <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.OPEN_NEW_TAB')"
             icon="i-lucide-arrow-up-right"
             variant="ghost"
             color="slate"

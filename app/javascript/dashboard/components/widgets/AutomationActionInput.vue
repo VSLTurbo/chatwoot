@@ -184,6 +184,7 @@ export default {
         </template>
         <NextButton
           v-if="!isMacro"
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           sm
           solid
           slate

@@ -233,6 +233,7 @@ const onDragEnd = () => {
               </p>
             </div>
             <Button
+              v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
               type="button"
               ghost
               slate

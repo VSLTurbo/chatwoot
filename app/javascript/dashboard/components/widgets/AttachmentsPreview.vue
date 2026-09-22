@@ -76,6 +76,7 @@ const fileName = file => {
       </div>
       <div class="flex items-center justify-center">
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           ghost
           slate
           xs

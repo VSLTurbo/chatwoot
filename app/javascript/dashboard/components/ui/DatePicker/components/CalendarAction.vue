@@ -41,6 +41,7 @@ const onClickSetView = (type, mode) => {
 <template>
   <div class="flex items-start justify-between w-full h-9">
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.PREV')"
       slate
       ghost
       xs
@@ -66,6 +67,7 @@ const onClickSetView = (type, mode) => {
       </button>
     </div>
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.NEXT')"
       slate
       ghost
       xs

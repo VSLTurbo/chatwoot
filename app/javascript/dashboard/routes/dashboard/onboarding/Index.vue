@@ -292,6 +292,7 @@ const handleSubmit = async () => {
                 @blur="isEditingWebsite = false"
               />
               <NextButton
+                v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
                 type="button"
                 icon="i-lucide-pencil"
                 slate

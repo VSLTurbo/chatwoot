@@ -28,6 +28,7 @@ const onClick = name => {
       </span>
       <div class="flex items-center gap-2">
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.OPEN')"
           icon="i-lucide-chevron-right"
           slate
           ghost

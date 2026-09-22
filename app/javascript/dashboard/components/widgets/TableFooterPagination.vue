@@ -52,6 +52,7 @@ const onLastPage = () => {
     class="flex items-center h-8 outline outline-1 outline-n-weak rounded-lg"
   >
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.FIRST')"
       faded
       sm
       slate
@@ -64,6 +65,7 @@ const onLastPage = () => {
       <div class="w-px h-4 rounded-sm bg-n-strong" />
     </div>
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.PREV')"
       faded
       sm
       slate
@@ -84,6 +86,7 @@ const onLastPage = () => {
       </span>
     </div>
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.NEXT')"
       faded
       sm
       slate
@@ -96,6 +99,7 @@ const onLastPage = () => {
       <div class="w-px h-4 rounded-sm bg-n-strong" />
     </div>
     <NextButton
+      v-tooltip="$t('TOOLTIPS.PAGINATION.LAST')"
       faded
       sm
       slate

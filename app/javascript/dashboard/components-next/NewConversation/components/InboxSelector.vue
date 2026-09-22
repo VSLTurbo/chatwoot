@@ -63,6 +63,7 @@ const targetInboxLabel = computed(() => {
         {{ targetInboxLabel }}
       </span>
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
         variant="ghost"
         icon="i-lucide-x"
         color="slate"

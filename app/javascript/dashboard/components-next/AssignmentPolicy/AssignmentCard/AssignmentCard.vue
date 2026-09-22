@@ -22,6 +22,7 @@ const handleClick = () => {
       <div class="flex justify-between w-full items-center">
         <h3 class="text-n-slate-12 text-heading-2">{{ title }}</h3>
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.OPEN')"
           xs
           slate
           ghost

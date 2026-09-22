@@ -160,6 +160,7 @@ const handleInputUpdate = async () => {
       class="flex items-center gap-1"
     >
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
         variant="faded"
         color="slate"
         icon="i-lucide-pencil"
@@ -168,6 +169,7 @@ const handleInputUpdate = async () => {
         @click="toggleEditValue(true)"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
         variant="faded"
         color="ruby"
         icon="i-lucide-trash"
@@ -194,6 +196,7 @@ const handleInputUpdate = async () => {
         @enter="handleInputUpdate"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.SAVE')"
         icon="i-lucide-check"
         :color="hasError ? 'ruby' : 'blue'"
         size="sm"

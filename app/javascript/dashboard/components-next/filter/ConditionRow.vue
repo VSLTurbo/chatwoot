@@ -265,6 +265,7 @@ defineExpose({ validate, resetValidation });
           />
         </template>
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           sm
           solid
           slate

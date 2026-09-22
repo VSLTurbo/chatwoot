@@ -126,6 +126,7 @@ onBeforeUnmount(() => {
         />
 
         <Button
+          v-tooltip="$t('GENERAL.CLOSE')"
           ghost
           sm
           amber

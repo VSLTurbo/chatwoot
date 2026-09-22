@@ -85,6 +85,7 @@ function changeAvailabilityStatus(availability) {
         <DropdownContainer class="shrink-0">
           <template #trigger="{ toggle }">
             <Button
+              v-tooltip="$t('TOOLTIPS.SIDEBAR.CHANGE_STATUS')"
               size="sm"
               color="slate"
               variant="faded"

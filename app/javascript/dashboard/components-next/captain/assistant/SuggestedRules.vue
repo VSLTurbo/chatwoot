@@ -44,6 +44,7 @@ const onClickClose = () => {
         />
       </div>
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.DISMISS')"
         ghost
         xs
         slate

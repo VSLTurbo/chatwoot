@@ -88,6 +88,7 @@ onMounted(() => {
       >
         <Button
           v-if="showCloseButton"
+          v-tooltip="$t('GENERAL.CLOSE')"
           ghost
           slate
           icon="i-lucide-x"

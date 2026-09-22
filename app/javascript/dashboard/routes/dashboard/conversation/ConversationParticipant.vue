@@ -216,7 +216,14 @@ export default {
         >
           {{ $t('CONVERSATION_PARTICIPANTS.ADD_PARTICIPANTS') }}
         </h4>
-        <NextButton ghost slate xs icon="i-lucide-x" @click="onCloseDropdown" />
+        <NextButton
+          v-tooltip="$t('GENERAL.CLOSE')"
+          ghost
+          slate
+          xs
+          icon="i-lucide-x"
+          @click="onCloseDropdown"
+        />
       </div>
       <MultiselectDropdownItems
         :options="agentsList"

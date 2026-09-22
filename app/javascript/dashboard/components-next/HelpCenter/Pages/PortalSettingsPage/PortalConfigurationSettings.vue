@@ -217,6 +217,7 @@ const onClickSend = email => {
             <div v-if="isOnChatwootCloud" class="w-px h-3 bg-n-weak" />
             <Button
               v-if="isOnChatwootCloud"
+              v-tooltip="$t('TOOLTIPS.COMMON.REFRESH')"
               slate
               sm
               link

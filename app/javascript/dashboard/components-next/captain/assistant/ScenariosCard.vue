@@ -186,9 +186,17 @@ const LINK_INSTRUCTION_CLASS =
           <span class="w-px h-4 bg-n-weak" />
           <!-- <Button label="Test" slate xs ghost class="!text-sm" />
           <span class="w-px h-4 bg-n-weak" /> -->
-          <Button icon="i-lucide-pen" slate xs ghost @click="startEdit" />
+          <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
+            icon="i-lucide-pen"
+            slate
+            xs
+            ghost
+            @click="startEdit"
+          />
           <span class="w-px h-4 bg-n-weak" />
           <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
             icon="i-lucide-trash"
             slate
             xs

@@ -9,7 +9,9 @@
       "COLLAPSE_SECTION": "Collapse this section",
       "EXPAND_SECTION": "Expand this section",
       "RESIZE": "Drag to resize. Double-click to collapse or expand the sidebar",
-      "CHANGELOG": "What's new"
+      "CHANGELOG": "What's new",
+      "OPEN_MENU": "Open the menu",
+      "CHANGE_STATUS": "Change your status: online, busy or offline"
     },
     "CONVERSATION": {
       "COPY_ID": "Copy the conversation number",
@@ -39,14 +41,25 @@
       "SEND_NOTE": "Save the note. Only the team sees it",
       "COPILOT": "AI copilot: suggests and improves the reply",
       "TOGGLE_EDITOR_SIZE": "Expand or shrink the writing area",
-      "MODE_TOGGLE": "Reply goes to the contact. Private note is team only"
+      "MODE_TOGGLE": "Reply goes to the contact. Private note is team only",
+      "COPILOT_SEND": "Send the instruction to the copilot"
     },
     "COMMON": {
       "COPY": "Copy",
       "EDIT": "Edit",
       "SAVE": "Save",
       "DELETE": "Delete",
-      "DRAG_TO_REORDER": "Drag to reorder"
+      "DRAG_TO_REORDER": "Drag to reorder",
+      "REMOVE": "Remove",
+      "DISMISS": "Dismiss",
+      "MORE_ACTIONS": "More actions",
+      "LIST_OPTIONS": "List options",
+      "MESSAGE_MORE": "More options for this message",
+      "OPEN": "Open",
+      "OPEN_NEW_TAB": "Open in a new tab",
+      "UNLINK": "Unlink",
+      "REFRESH": "Refresh",
+      "OPEN_COPILOT": "Open the AI copilot"
     },
     "CONTACT": {
       "OPEN_PROFILE": "Open the full contact profile",
@@ -85,6 +98,22 @@
       "DELETE_SEGMENT": "Delete this segment",
       "MORE_ACTIONS": "More actions: import and export",
       "SORT": "Sort the list"
+    },
+    "PAGINATION": {
+      "FIRST": "First page",
+      "PREV": "Previous",
+      "NEXT": "Next",
+      "LAST": "Last page"
+    },
+    "GALLERY": {
+      "ZOOM_IN": "Zoom in",
+      "ZOOM_OUT": "Zoom out",
+      "ROTATE_LEFT": "Rotate left",
+      "ROTATE_RIGHT": "Rotate right",
+      "DOWNLOAD": "Download",
+      "EXPAND": "Expand",
+      "PREV": "Previous file",
+      "NEXT": "Next file"
     }
   }
 }

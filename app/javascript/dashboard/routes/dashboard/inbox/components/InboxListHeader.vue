@@ -106,6 +106,7 @@ export default {
     </div>
     <div class="relative flex items-center gap-1">
       <NextButton
+        v-tooltip="$t('TOOLTIPS.COMMON.LIST_OPTIONS')"
         icon="i-lucide-sliders-vertical"
         slate
         sm
