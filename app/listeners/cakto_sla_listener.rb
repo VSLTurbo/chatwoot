@@ -13,4 +13,9 @@ class CaktoSlaListener < BaseListener
     conversation = extract_conversation_and_account(event)[0]
     CaktoSla::MarkResolutionService.new(conversation: conversation, at: event.timestamp).perform
   end
+
+  def team_changed(event)
+    conversation = extract_conversation_and_account(event)[0]
+    CaktoSla::ReapplyForTeamService.new(conversation: conversation, at: event.timestamp).perform
+  end
 end

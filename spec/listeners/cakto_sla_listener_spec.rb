@@ -42,4 +42,20 @@ describe CaktoSlaListener do
       expect(sla.reload).to be_resolution_status_met
     end
   end
+
+  describe '#team_changed' do
+    it 'reapplies the policy of the new team counting from the event time' do
+      team = create(:team, account: account)
+      policy = create(:cakto_sla_policy, account: account, team_ids: [team.id], first_response_minutes: 30)
+      sla = create(:cakto_conversation_sla, account: account, conversation: conversation)
+      conversation.update!(team: team)
+      timestamp = Time.zone.now
+      event = Events::Base.new('team.changed', timestamp, conversation: conversation)
+
+      listener.team_changed(event)
+
+      expect(sla.reload.cakto_sla_policy).to eq(policy)
+      expect(sla.first_response_due_at.to_i).to eq((timestamp + 30.minutes).to_i)
+    end
+  end
 end
