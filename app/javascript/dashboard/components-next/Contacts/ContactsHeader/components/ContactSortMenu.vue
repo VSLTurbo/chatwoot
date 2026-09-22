@@ -95,6 +95,7 @@ const handleOrderChange = value => {
 <template>
   <div class="relative">
     <Button
+      v-tooltip="$t('TOOLTIPS.CONTACTS.SORT')"
       icon="i-lucide-arrow-down-up"
       color="slate"
       size="sm"

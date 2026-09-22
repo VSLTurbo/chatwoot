@@ -45,7 +45,8 @@
       "COPY": "Copiar",
       "EDIT": "Editar",
       "SAVE": "Salvar",
-      "DELETE": "Apagar"
+      "DELETE": "Apagar",
+      "DRAG_TO_REORDER": "Arraste para mudar a ordem"
     },
     "CONTACT": {
       "OPEN_PROFILE": "Abrir a ficha completa do contato",
@@ -67,6 +68,23 @@
       "REPORT_FIRST_RESPONSE": "Dentro do prazo entre as medidas. Medida é a conversa que já teve primeira resposta ou já estourou",
       "REPORT_RESOLUTION": "Dentro do prazo entre as medidas. Medida é a conversa já resolvida ou que já estourou",
       "REPORT_PENDING": "Prazos ainda correndo: a conversa não foi respondida ou resolvida e não estourou"
+    },
+    "CAMPAIGNS": {
+      "EDIT": "Editar a campanha",
+      "DELETE": "Apagar a campanha"
+    },
+    "CONTACTS": {
+      "EXPAND_CARD": "Ver mais dados do contato",
+      "COLLAPSE_CARD": "Recolher os dados do contato",
+      "SHOW_SIDEBAR": "Mostrar o painel lateral",
+      "HIDE_SIDEBAR": "Esconder o painel lateral",
+      "REMOVE_FILE": "Remover o arquivo escolhido",
+      "FILTER": "Filtrar os contatos",
+      "EDIT_SEGMENT": "Editar os filtros deste segmento",
+      "SAVE_SEGMENT": "Salvar estes filtros como segmento",
+      "DELETE_SEGMENT": "Apagar este segmento",
+      "MORE_ACTIONS": "Mais ações: importar e exportar",
+      "SORT": "Ordenar a lista"
     }
   }
 }

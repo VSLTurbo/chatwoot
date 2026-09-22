@@ -45,7 +45,8 @@
       "COPY": "Copy",
       "EDIT": "Edit",
       "SAVE": "Save",
-      "DELETE": "Delete"
+      "DELETE": "Delete",
+      "DRAG_TO_REORDER": "Drag to reorder"
     },
     "CONTACT": {
       "OPEN_PROFILE": "Open the full contact profile",
@@ -67,6 +68,23 @@
       "REPORT_FIRST_RESPONSE": "On time among measured ones. Measured means it already got a first reply or already breached",
       "REPORT_RESOLUTION": "On time among measured ones. Measured means already resolved or already breached",
       "REPORT_PENDING": "Deadlines still running: not replied or resolved yet and not breached"
+    },
+    "CAMPAIGNS": {
+      "EDIT": "Edit campaign",
+      "DELETE": "Delete campaign"
+    },
+    "CONTACTS": {
+      "EXPAND_CARD": "Show more contact details",
+      "COLLAPSE_CARD": "Hide contact details",
+      "SHOW_SIDEBAR": "Show the side panel",
+      "HIDE_SIDEBAR": "Hide the side panel",
+      "REMOVE_FILE": "Remove the chosen file",
+      "FILTER": "Filter contacts",
+      "EDIT_SEGMENT": "Edit this segment's filters",
+      "SAVE_SEGMENT": "Save these filters as a segment",
+      "DELETE_SEGMENT": "Delete this segment",
+      "MORE_ACTIONS": "More actions: import and export",
+      "SORT": "Sort the list"
     }
   }
 }

@@ -144,6 +144,7 @@ const inboxIcon = computed(() => {
       />
       <Button
         v-if="isLiveChatType"
+        v-tooltip="$t('TOOLTIPS.CAMPAIGNS.EDIT')"
         variant="faded"
         size="sm"
         color="slate"
@@ -151,6 +152,7 @@ const inboxIcon = computed(() => {
         @click="emit('edit')"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.CAMPAIGNS.DELETE')"
         variant="faded"
         color="ruby"
         size="sm"

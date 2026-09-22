@@ -428,6 +428,7 @@ onMounted(() => {
                       </p>
                     </div>
                     <NextButton
+                      v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
                       icon="i-lucide-trash-2"
                       ghost
                       ruby
