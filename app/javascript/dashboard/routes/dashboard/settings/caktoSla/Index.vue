@@ -144,6 +144,12 @@ onBeforeMount(() => {
                     n: policy.inbox_ids?.length || 0,
                   })
                 }}
+                ·
+                {{
+                  $t('CAKTO_SLA.SETTINGS.LIST.TEAM_COUNT', {
+                    n: policy.team_ids?.length || 0,
+                  })
+                }}
               </span>
             </BaseTableCell>
             <BaseTableCell>

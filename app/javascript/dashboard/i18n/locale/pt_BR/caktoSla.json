@@ -29,12 +29,16 @@
         "NOT_MEASURED": "Não mede",
         "ACTIVE": "Ativa",
         "INACTIVE": "Inativa",
-        "INBOX_COUNT": "{n} caixa | {n} caixas"
+        "INBOX_COUNT": "{n} caixa | {n} caixas",
+        "TEAM_COUNT": "{n} equipe | {n} equipes"
       },
       "FORM": {
         "ADD_TITLE": "Nova política de SLA",
         "EDIT_TITLE": "Editar política de SLA",
-        "NAME": { "LABEL": "Nome", "PLACEHOLDER": "Ex.: Suporte padrão" },
+        "NAME": {
+          "LABEL": "Nome",
+          "PLACEHOLDER": "Ex.: Suporte padrão"
+        },
         "DESCRIPTION": {
           "LABEL": "Descrição",
           "PLACEHOLDER": "Para que serve esta política"
@@ -52,12 +56,16 @@
           "PLACEHOLDER": "Escolha as caixas"
         },
         "ACTIVE": "Política ativa",
-        "HINT": "Uma caixa só pode estar em uma política ativa por vez.",
+        "HINT": "Uma caixa ou equipe só pode estar em uma política ativa por vez. A equipe vale mais que a caixa: ao transferir o ticket, o prazo passa a ser o da equipe nova.",
         "CANCEL": "Cancelar",
         "CREATE": "Criar",
         "SAVE": "Salvar",
         "EDIT": "Editar",
-        "DELETE": "Excluir"
+        "DELETE": "Excluir",
+        "TEAMS": {
+          "LABEL": "Equipes (áreas)",
+          "PLACEHOLDER": "Escolha as equipes"
+        }
       },
       "API": {
         "CREATE_SUCCESS": "Política criada",

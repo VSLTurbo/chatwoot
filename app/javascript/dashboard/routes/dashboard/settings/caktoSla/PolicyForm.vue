@@ -31,6 +31,7 @@ const description = ref(props.policy?.description || '');
 const firstResponseMinutes = ref(props.policy?.first_response_minutes ?? '');
 const resolutionMinutes = ref(props.policy?.resolution_minutes ?? '');
 const inboxIds = ref([...(props.policy?.inbox_ids || [])]);
+const teamIds = ref([...(props.policy?.team_ids || [])]);
 const active = ref(props.policy?.active ?? true);
 
 const uiFlags = computed(() => getters['caktoSla/getUIFlags'].value);
@@ -42,6 +43,14 @@ const inboxOptions = computed(() =>
   getters['inboxes/getInboxes'].value.map(inbox => ({
     value: inbox.id,
     label: inbox.name,
+  }))
+);
+
+// Equipe (área) tem prioridade sobre a caixa: ao transferir o ticket, vale o prazo da área.
+const teamOptions = computed(() =>
+  getters['teams/getTeams'].value.map(team => ({
+    value: team.id,
+    label: team.name,
   }))
 );
 
@@ -65,6 +74,7 @@ const submit = async () => {
     first_response_minutes: minutosOuNulo(firstResponseMinutes.value),
     resolution_minutes: minutosOuNulo(resolutionMinutes.value),
     inbox_ids: inboxIds.value,
+    team_ids: teamIds.value,
     active: active.value,
   };
   try {
@@ -136,6 +146,17 @@ const submit = async () => {
           v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.INBOXES')"
           :options="inboxOptions"
           :placeholder="$t('CAKTO_SLA.SETTINGS.FORM.INBOXES.PLACEHOLDER')"
+        />
+      </div>
+      <div class="flex flex-col gap-1">
+        <label class="text-sm font-medium text-n-slate-12">
+          {{ $t('CAKTO_SLA.SETTINGS.FORM.TEAMS.LABEL') }}
+        </label>
+        <TagMultiSelectComboBox
+          v-model="teamIds"
+          v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.TEAMS')"
+          :options="teamOptions"
+          :placeholder="$t('CAKTO_SLA.SETTINGS.FORM.TEAMS.PLACEHOLDER')"
         />
       </div>
       <label
