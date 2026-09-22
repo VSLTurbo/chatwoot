@@ -80,7 +80,8 @@
       "REPORT_INBOX_FILTER": "Show only conversations from one inbox",
       "REPORT_FIRST_RESPONSE": "On time among measured ones. Measured means it already got a first reply or already breached",
       "REPORT_RESOLUTION": "On time among measured ones. Measured means already resolved or already breached",
-      "REPORT_PENDING": "Deadlines still running: not replied or resolved yet and not breached"
+      "REPORT_PENDING": "Deadlines still running: not replied or resolved yet and not breached",
+      "TEAMS": "Per-team deadline: when a ticket changes team, this policy applies, counting from the transfer"
     },
     "CAMPAIGNS": {
       "EDIT": "Edit campaign",

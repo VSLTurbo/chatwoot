@@ -29,12 +29,16 @@
         "NOT_MEASURED": "Not measured",
         "ACTIVE": "Active",
         "INACTIVE": "Inactive",
-        "INBOX_COUNT": "{n} inbox | {n} inboxes"
+        "INBOX_COUNT": "{n} inbox | {n} inboxes",
+        "TEAM_COUNT": "{n} team | {n} teams"
       },
       "FORM": {
         "ADD_TITLE": "New SLA policy",
         "EDIT_TITLE": "Edit SLA policy",
-        "NAME": { "LABEL": "Name", "PLACEHOLDER": "E.g. Standard support" },
+        "NAME": {
+          "LABEL": "Name",
+          "PLACEHOLDER": "E.g. Standard support"
+        },
         "DESCRIPTION": {
           "LABEL": "Description",
           "PLACEHOLDER": "What this policy is for"
@@ -47,14 +51,21 @@
           "LABEL": "Resolution (minutes)",
           "PLACEHOLDER": "Leave blank to skip"
         },
-        "INBOXES": { "LABEL": "Inboxes", "PLACEHOLDER": "Pick inboxes" },
+        "INBOXES": {
+          "LABEL": "Inboxes",
+          "PLACEHOLDER": "Pick inboxes"
+        },
         "ACTIVE": "Policy active",
-        "HINT": "An inbox can belong to only one active policy at a time.",
+        "HINT": "An inbox or team can only be in one active policy at a time. Team wins over inbox: when a ticket moves to another team, that team's policy applies.",
         "CANCEL": "Cancel",
         "CREATE": "Create",
         "SAVE": "Save",
         "EDIT": "Edit",
-        "DELETE": "Delete"
+        "DELETE": "Delete",
+        "TEAMS": {
+          "LABEL": "Teams",
+          "PLACEHOLDER": "Choose teams"
+        }
       },
       "API": {
         "CREATE_SUCCESS": "Policy created",

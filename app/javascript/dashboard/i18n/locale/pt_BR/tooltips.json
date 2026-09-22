@@ -80,7 +80,8 @@
       "REPORT_INBOX_FILTER": "Ver só as conversas de uma caixa",
       "REPORT_FIRST_RESPONSE": "Dentro do prazo entre as medidas. Medida é a conversa que já teve primeira resposta ou já estourou",
       "REPORT_RESOLUTION": "Dentro do prazo entre as medidas. Medida é a conversa já resolvida ou que já estourou",
-      "REPORT_PENDING": "Prazos ainda correndo: a conversa não foi respondida ou resolvida e não estourou"
+      "REPORT_PENDING": "Prazos ainda correndo: a conversa não foi respondida ou resolvida e não estourou",
+      "TEAMS": "Prazo por área: ao mudar o ticket de equipe, vale o prazo desta política, contando da transferência"
     },
     "CAMPAIGNS": {
       "EDIT": "Editar a campanha",
