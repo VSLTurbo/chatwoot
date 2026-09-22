@@ -12,7 +12,7 @@ import Policy from 'dashboard/components/policy.vue';
 import AssistantSwitcher from 'dashboard/components-next/captain/pageComponents/switcher/AssistantSwitcher.vue';
 import CreateAssistantDialog from 'dashboard/components-next/captain/pageComponents/assistant/CreateAssistantDialog.vue';
 
-const props = defineProps({
+defineProps({
   currentPage: {
     type: Number,
     default: 1,
@@ -121,10 +121,7 @@ const handleCreateAssistant = () => {
         >
           <div class="flex gap-3 items-center">
             <BackButton v-if="backUrl" :back-url="backUrl" />
-            <div
-              v-if="showAssistantSwitcher"
-              class="flex items-center gap-2"
-            >
+            <div v-if="showAssistantSwitcher" class="flex items-center gap-2">
               <div class="flex items-center gap-2">
                 <span
                   v-if="!isFetchingAssistants"
@@ -188,7 +185,7 @@ const handleCreateAssistant = () => {
               v-on-clickaway="() => emit('close')"
               class="relative group/captain-button"
             >
-              <Policy :permissions="buttonPolicy">
+              <Policy :permissions="buttonPolicy" :feature-flag="featureFlag">
                 <Button
                   :label="buttonLabel"
                   icon="i-lucide-plus"

@@ -39,7 +39,6 @@ export default {
     ...mapGetters({
       records: 'webhooks/getWebhooks',
       uiFlags: 'webhooks/getUIFlags',
-      accountId: 'getCurrentAccountId',
     }),
     integration() {
       return this.$store.getters['integrations/getIntegration']('webhook');
@@ -60,8 +59,6 @@ export default {
   },
   mounted() {
     this.$store.dispatch('webhooks/get');
-  },
-  mounted() {
     this.$store.dispatch('integrations/get', 'webhook');
   },
   methods: {
@@ -120,7 +117,9 @@ export default {
         :title="integration.name"
         :description="replaceInstallationName(integration.description)"
         :link-text="$t('INTEGRATION_SETTINGS.WEBHOOK.LEARN_MORE')"
-        :search-placeholder="$t('INTEGRATION_SETTINGS.WEBHOOK.SEARCH_PLACEHOLDER')"
+        :search-placeholder="
+          $t('INTEGRATION_SETTINGS.WEBHOOK.SEARCH_PLACEHOLDER')
+        "
         feature-name="webhook"
         :back-button-label="$t('INTEGRATION_SETTINGS.HEADER')"
       >
@@ -161,17 +160,11 @@ export default {
         </template>
       </BaseTable>
     </template>
-    <woot-modal
-      v-model:show="showAddPopup"
-      :on-close="hideAddPopup"
-    >
+    <woot-modal v-model:show="showAddPopup" :on-close="hideAddPopup">
       <NewWebhook v-if="showAddPopup" :on-close="hideAddPopup" />
     </woot-modal>
 
-    <woot-modal
-      v-model:show="showEditPopup"
-      :on-close="hideEditPopup"
-    >
+    <woot-modal v-model:show="showEditPopup" :on-close="hideEditPopup">
       <EditWebhook
         v-if="showEditPopup"
         :id="selectedWebHook.id"

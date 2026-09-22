@@ -97,11 +97,14 @@ describe('Dashboard', () => {
     expect(commandBar.mounts).toBe(1);
   });
 
-  it.each(['metaKey', 'ctrlKey'])('opens the command bar on %s + k', async modifier => {
-    const { commandBar } = await mountDashboard();
+  it.each(['metaKey', 'ctrlKey'])(
+    'opens the command bar on %s + k',
+    async modifier => {
+      const { commandBar } = await mountDashboard();
 
-    pressHotkey(modifier);
+      pressHotkey(modifier);
 
-    expect(commandBar.opens).toBe(1);
-  });
+      expect(commandBar.opens).toBe(1);
+    }
+  );
 });
