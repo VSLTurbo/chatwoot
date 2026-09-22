@@ -1,0 +1,44 @@
+{
+  "CAKTO_TICKETS": {
+    "BADGE": "Internal ticket",
+    "HEADER_ACTION": "Open internal ticket",
+    "FORM": {
+      "TITLE": "New internal ticket",
+      "DESCRIPTION": "Opens a conversation for another Cakto team. You are the requester and the team replies right here.",
+      "TEAM": { "LABEL": "Team", "PLACEHOLDER": "Pick a team" },
+      "TICKET_TITLE": {
+        "LABEL": "Title",
+        "PLACEHOLDER": "E.g.: Refund stuck for seller X"
+      },
+      "TICKET_DESCRIPTION": {
+        "LABEL": "Description",
+        "PLACEHOLDER": "What happened and what you need from the team"
+      },
+      "PRIORITY": {
+        "LABEL": "Priority",
+        "LOW": "Low",
+        "MEDIUM": "Medium",
+        "HIGH": "High",
+        "URGENT": "Urgent"
+      },
+      "SELLER": {
+        "LABEL": "Seller (optional)",
+        "PLACEHOLDER": "Seller name or email"
+      },
+      "RELATED": {
+        "LABEL": "Related conversation (optional)",
+        "PLACEHOLDER": "Conversation number, e.g. 1234"
+      },
+      "ERRORS": {
+        "TEAM": "Pick the team that will handle it",
+        "TITLE": "Enter a title",
+        "DESCRIPTION": "Describe the request"
+      },
+      "CANCEL": "Cancel",
+      "SUBMIT": "Open ticket",
+      "SUCCESS": "Internal ticket opened",
+      "ERROR": "Could not open the ticket. Try again.",
+      "SETUP_ERROR": "Could not load the teams."
+    }
+  }
+}
