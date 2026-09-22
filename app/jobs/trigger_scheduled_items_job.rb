@@ -22,6 +22,9 @@ class TriggerScheduledItemsJob < ApplicationJob
 
     # Job to trigger pending executions
     AutomationRules::TriggerPendingExecutionsJob.perform_later
+
+    # Job para marcar SLAs da Cakto estourados
+    CaktoSla::BreachJob.perform_later
   end
 end
 

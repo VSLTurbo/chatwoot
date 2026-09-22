@@ -11,6 +11,7 @@ class AsyncDispatcher < BaseDispatcher
   def listeners
     [
       AutomationRuleListener.instance,
+      CaktoSlaListener.instance,
       CampaignListener.instance,
       CsatSurveyListener.instance,
       HookListener.instance,
