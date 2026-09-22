@@ -69,17 +69,17 @@ class CaktoTickets::CreateService
     account.conversations.create!(
       inbox: inbox, contact: contact_inbox.contact, contact_inbox: contact_inbox,
       team: team, priority: priority, status: :open,
-      additional_attributes: { cakto_ticket: true, solicitante_user_id: user.id },
+      additional_attributes: { 'cakto_ticket' => true, 'solicitante_user_id' => user.id },
       custom_attributes: custom_attributes
     )
   end
 
   def custom_attributes
     {
-      cakto_ticket_titulo: title,
-      cakto_ticket_solicitante: user.name,
-      cakto_ticket_seller: params[:seller].to_s.strip.presence,
-      cakto_ticket_origem: related_conversation&.display_id&.to_s
+      'cakto_ticket_titulo' => title,
+      'cakto_ticket_solicitante' => user.name,
+      'cakto_ticket_seller' => params[:seller].to_s.strip.presence,
+      'cakto_ticket_origem' => related_conversation&.display_id&.to_s
     }.compact
   end
 

@@ -23,7 +23,7 @@ class Api::V1::Accounts::CaktoTicketsController < Api::V1::Accounts::BaseControl
   end
 
   def check_authorization
-    authorize :cakto_ticket, "#{action_name}?"
+    authorize :cakto_ticket
   end
 
   def permitted_payload
