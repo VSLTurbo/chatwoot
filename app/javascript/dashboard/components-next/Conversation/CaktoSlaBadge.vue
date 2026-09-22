@@ -1,6 +1,5 @@
 <script setup>
-import { computed } from 'vue';
-import { useNow } from '@vueuse/core';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { caktoSlaStatus } from 'dashboard/helper/caktoSlaStatus';
 
@@ -14,14 +13,23 @@ const props = defineProps({
 });
 
 const { t } = useI18n();
-const now = useNow({ interval: 30_000 });
+// Relógio próprio (segundos unix) atualizado a cada 30 s. Não usa useNow do
+// vueuse: no vitest ele resolve outra cópia do Vue e o computed não reage.
+const now = ref(Date.now() / 1000);
+let relogio;
+onMounted(() => {
+  relogio = setInterval(() => {
+    now.value = Date.now() / 1000;
+  }, 30_000);
+});
+onUnmounted(() => clearInterval(relogio));
 
 const estado = computed(() =>
   caktoSlaStatus(props.chat.cakto_sla, {
     firstReplyCreatedAt: props.chat.first_reply_created_at,
     status: props.chat.status,
     createdAt: props.chat.created_at,
-    now: now.value.getTime() / 1000,
+    now: now.value,
   })
 );
 
