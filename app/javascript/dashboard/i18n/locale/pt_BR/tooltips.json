@@ -31,6 +31,15 @@
         "unassigned": "Conversas que ainda não têm responsável",
         "all": "Todas as conversas, com ou sem responsável"
       }
+    },
+    "COMPOSER": {
+      "AUDIO_PLAY_PAUSE": "Ouvir ou pausar a gravação",
+      "CONTENT_TEMPLATES": "Modelos de conteúdo aprovados",
+      "SEND": "Enviar a mensagem para o contato",
+      "SEND_NOTE": "Salvar a nota. Só o time vê",
+      "COPILOT": "Copiloto de IA: sugere e melhora a resposta",
+      "TOGGLE_EDITOR_SIZE": "Aumentar ou reduzir a área de escrita",
+      "MODE_TOGGLE": "Responder vai para o contato. Nota privada só o time vê"
     }
   }
 }
