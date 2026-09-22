@@ -85,8 +85,6 @@ RSpec.configure do |config|
   # <usuário>" e recebia atividade inesperada. Apareceu quando os arquivos de
   # spec do SLA da Cakto mudaram a partição dos shards.
   config.before { Current.reset }
-  # DEBUG-CAKTO (temporário): fazer o 500 das páginas mostrar a exceção no CI.
-  config.before(:each, type: :request) { Rails.application.env_config['action_dispatch.show_exceptions'] = :none }
 
   # OpenAPI response validation via Skooma
   path_to_openapi = Rails.root.join('swagger/swagger.json')

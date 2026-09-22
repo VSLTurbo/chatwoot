@@ -5,7 +5,7 @@ import { useRouter } from 'vue-router';
 import { useAlert } from 'dashboard/composables';
 import { useStore, useStoreGetters } from 'dashboard/composables/store';
 
-import Dialog from 'dashboard/components-next/Dialog/Dialog.vue';
+import Dialog from 'dashboard/components-next/dialog/Dialog.vue';
 import Input from 'dashboard/components-next/input/Input.vue';
 import TextArea from 'dashboard/components-next/textarea/TextArea.vue';
 
