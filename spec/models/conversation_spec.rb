@@ -710,6 +710,7 @@ RSpec.describe Conversation do
         created_at: conversation.created_at.to_i,
         updated_at: conversation.updated_at.to_f,
         waiting_since: conversation.waiting_since.to_i,
+        cakto_sla: nil,
         priority: nil,
         unread_count: 0
       }

@@ -80,6 +80,11 @@ RSpec.configure do |config|
   config.include ActiveSupport::Testing::TimeHelpers
   config.include ActionCable::TestHelper
   config.include ActiveJob::TestHelper
+  # Current.user vazava de um exemplo para o outro dentro de um shard (um spec
+  # anterior define e não limpa); a spec de CSAT então via "reaberta por
+  # <usuário>" e recebia atividade inesperada. Apareceu quando os arquivos de
+  # spec do SLA da Cakto mudaram a partição dos shards.
+  config.before { Current.reset }
 
   # OpenAPI response validation via Skooma
   path_to_openapi = Rails.root.join('swagger/swagger.json')

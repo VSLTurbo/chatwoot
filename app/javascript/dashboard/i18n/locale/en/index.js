@@ -5,6 +5,7 @@ import attributesMgmt from './attributesMgmt.json';
 import auditLogs from './auditLogs.json';
 import automation from './automation.json';
 import bulkActions from './bulkActions.json';
+import caktoSla from './caktoSla.json';
 import calls from './calls.json';
 import campaign from './campaign.json';
 import cannedMgmt from './cannedMgmt.json';
@@ -53,6 +54,7 @@ export default {
   ...auditLogs,
   ...automation,
   ...bulkActions,
+  ...caktoSla,
   ...calls,
   ...campaign,
   ...cannedMgmt,

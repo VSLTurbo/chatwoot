@@ -6,6 +6,7 @@ import Avatar from 'dashboard/components-next/avatar/Avatar.vue';
 import MessagePreview from 'dashboard/components-next/Conversation/ConversationCard/MessagePreview.vue';
 import CardLabels from 'dashboard/components-next/Conversation/ConversationCard/CardLabels.vue';
 import SLACardLabel from 'dashboard/components-next/Conversation/ConversationCard/SLACardLabel.vue';
+import CaktoSlaBadge from 'dashboard/components-next/Conversation/CaktoSlaBadge.vue';
 
 const props = defineProps({
   conversation: {
@@ -54,8 +55,27 @@ const hasSlaThreshold = computed(() => {
   );
 });
 
+// O card next recebe a conversa em camelCase; o selo lê o formato da API.
+const caktoSlaChat = computed(() =>
+  props.conversation?.caktoSla
+    ? useSnakeCase(
+        {
+          caktoSla: props.conversation.caktoSla,
+          firstReplyCreatedAt: props.conversation.firstReplyCreatedAt,
+          status: props.conversation.status,
+          createdAt: props.conversation.createdAt,
+        },
+        { deep: true }
+      )
+    : null
+);
+
+const hasSlaBadge = computed(
+  () => hasSlaThreshold.value || !!caktoSlaChat.value
+);
+
 defineExpose({
-  hasSlaThreshold,
+  hasSlaThreshold: hasSlaBadge,
 });
 </script>
 
@@ -81,17 +101,20 @@ defineExpose({
     <div
       class="grid items-center gap-2.5 h-7"
       :class="
-        hasSlaThreshold && hasLabels
+        hasSlaBadge && hasLabels
           ? 'grid-cols-[auto_auto_1fr_20px]'
           : 'grid-cols-[1fr_20px]'
       "
     >
-      <SLACardLabel
-        v-show="hasSlaThreshold"
-        ref="slaCardLabelRef"
-        :conversation="conversation"
-      />
-      <div v-if="hasSlaThreshold && hasLabels" class="w-px h-3 bg-n-slate-4" />
+      <div class="flex items-center gap-2">
+        <SLACardLabel
+          v-show="hasSlaThreshold"
+          ref="slaCardLabelRef"
+          :conversation="conversation"
+        />
+        <CaktoSlaBadge v-if="caktoSlaChat" :chat="caktoSlaChat" />
+      </div>
+      <div v-if="hasSlaBadge && hasLabels" class="w-px h-3 bg-n-slate-4" />
       <div v-if="hasLabels" class="overflow-hidden">
         <CardLabels
           :conversation-labels="conversation.labels"

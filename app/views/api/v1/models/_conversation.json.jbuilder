@@ -22,3 +22,4 @@ json.messages do
   end
 end
 json.account_id conversation.account_id
+json.cakto_sla conversation.cakto_sla&.push_event_data

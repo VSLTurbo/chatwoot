@@ -38,6 +38,14 @@ describe('ConversationCard', () => {
     expect(wrapper.findComponent({ name: 'CardLabels' }).exists()).toBe(false);
   });
 
+  it('shows the labels row when the Cakto SLA is present', () => {
+    const wrapper = mountComponent({
+      cakto_sla: { policy_id: 1, first_response_status: 'pending' },
+    });
+
+    expect(wrapper.findComponent({ name: 'CardLabels' }).exists()).toBe(true);
+  });
+
   it('shows the labels row when an active applied SLA is present', () => {
     const wrapper = mountComponent({
       sla_policy_id: 1,
