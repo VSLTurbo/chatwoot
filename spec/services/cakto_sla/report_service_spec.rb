@@ -16,6 +16,8 @@ describe CaktoSla::ReportService do
   end
 
   before do
+    # A agente precisa ser da equipe: conversa com equipe sem o responsável nela perde o responsável.
+    create(:team_member, team: team, user: agent)
     sla_for(inbox, first_response: :met, resolution: :pending, assignee: agent, team: team)
     sla_for(inbox, first_response: :breached, resolution: :met, assignee: agent)
     sla_for(other_inbox, first_response: :pending, resolution: :not_measured)
