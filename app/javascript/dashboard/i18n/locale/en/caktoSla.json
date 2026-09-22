@@ -35,9 +35,18 @@
         "ADD_TITLE": "New SLA policy",
         "EDIT_TITLE": "Edit SLA policy",
         "NAME": { "LABEL": "Name", "PLACEHOLDER": "E.g. Standard support" },
-        "DESCRIPTION": { "LABEL": "Description", "PLACEHOLDER": "What this policy is for" },
-        "FIRST_RESPONSE": { "LABEL": "First response (minutes)", "PLACEHOLDER": "Leave blank to skip" },
-        "RESOLUTION": { "LABEL": "Resolution (minutes)", "PLACEHOLDER": "Leave blank to skip" },
+        "DESCRIPTION": {
+          "LABEL": "Description",
+          "PLACEHOLDER": "What this policy is for"
+        },
+        "FIRST_RESPONSE": {
+          "LABEL": "First response (minutes)",
+          "PLACEHOLDER": "Leave blank to skip"
+        },
+        "RESOLUTION": {
+          "LABEL": "Resolution (minutes)",
+          "PLACEHOLDER": "Leave blank to skip"
+        },
         "INBOXES": { "LABEL": "Inboxes", "PLACEHOLDER": "Pick inboxes" },
         "ACTIVE": "Policy active",
         "HINT": "An inbox can belong to only one active policy at a time.",

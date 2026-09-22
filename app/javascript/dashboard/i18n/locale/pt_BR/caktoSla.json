@@ -35,10 +35,22 @@
         "ADD_TITLE": "Nova política de SLA",
         "EDIT_TITLE": "Editar política de SLA",
         "NAME": { "LABEL": "Nome", "PLACEHOLDER": "Ex.: Suporte padrão" },
-        "DESCRIPTION": { "LABEL": "Descrição", "PLACEHOLDER": "Para que serve esta política" },
-        "FIRST_RESPONSE": { "LABEL": "Primeira resposta (minutos)", "PLACEHOLDER": "Em branco para não medir" },
-        "RESOLUTION": { "LABEL": "Resolução (minutos)", "PLACEHOLDER": "Em branco para não medir" },
-        "INBOXES": { "LABEL": "Caixas de entrada", "PLACEHOLDER": "Escolha as caixas" },
+        "DESCRIPTION": {
+          "LABEL": "Descrição",
+          "PLACEHOLDER": "Para que serve esta política"
+        },
+        "FIRST_RESPONSE": {
+          "LABEL": "Primeira resposta (minutos)",
+          "PLACEHOLDER": "Em branco para não medir"
+        },
+        "RESOLUTION": {
+          "LABEL": "Resolução (minutos)",
+          "PLACEHOLDER": "Em branco para não medir"
+        },
+        "INBOXES": {
+          "LABEL": "Caixas de entrada",
+          "PLACEHOLDER": "Escolha as caixas"
+        },
         "ACTIVE": "Política ativa",
         "HINT": "Uma caixa só pode estar em uma política ativa por vez.",
         "CANCEL": "Cancelar",
