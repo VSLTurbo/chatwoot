@@ -60,7 +60,7 @@ class CaktoSlaPolicy < ApplicationRecord
     return unless active? && inbox_ids.any?
 
     conflict = CaktoSlaPolicy.active.where(account_id: account_id).where.not(id: id)
-                             .where('inbox_ids && ARRAY[?]::integer[]', inbox_ids).exists?
+                             .exists?(['inbox_ids && ARRAY[?]::integer[]', inbox_ids])
     errors.add(:inbox_ids, 'contém caixa de entrada já coberta por outra política ativa') if conflict
   end
 end

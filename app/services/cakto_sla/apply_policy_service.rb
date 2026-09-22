@@ -23,7 +23,7 @@ class CaktoSla::ApplyPolicyService
   end
 
   def due_at(minutes)
-    minutes && conversation.created_at + minutes.minutes
+    minutes && (conversation.created_at + minutes.minutes)
   end
 
   def status_for(minutes)

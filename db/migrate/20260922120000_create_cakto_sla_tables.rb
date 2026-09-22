@@ -39,8 +39,9 @@ class CreateCaktoSlaTables < ActiveRecord::Migration[7.1]
   end
 
   def add_cakto_conversation_sla_indexes
-    add_index :cakto_conversation_slas, [:account_id, :first_response_status]
-    add_index :cakto_conversation_slas, [:account_id, :resolution_status]
+    # Nomes curtos: o padrão do Rails passaria dos 63 caracteres do Postgres.
+    add_index :cakto_conversation_slas, [:account_id, :first_response_status], name: 'idx_cakto_conv_slas_acct_fr_status'
+    add_index :cakto_conversation_slas, [:account_id, :resolution_status], name: 'idx_cakto_conv_slas_acct_res_status'
     add_index :cakto_conversation_slas, :first_response_due_at
     add_index :cakto_conversation_slas, :resolution_due_at
   end

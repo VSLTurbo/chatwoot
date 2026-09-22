@@ -19,8 +19,8 @@
 # Indexes
 #
 #  index_cakto_conversation_slas_on_account_id                            (account_id)
-#  index_cakto_conversation_slas_on_account_id_and_first_response_status  (account_id,first_response_status)
-#  index_cakto_conversation_slas_on_account_id_and_resolution_status      (account_id,resolution_status)
+#  idx_cakto_conv_slas_acct_fr_status                                     (account_id,first_response_status)
+#  idx_cakto_conv_slas_acct_res_status                                    (account_id,resolution_status)
 #  index_cakto_conversation_slas_on_cakto_sla_policy_id                   (cakto_sla_policy_id)
 #  index_cakto_conversation_slas_on_conversation_id                       (conversation_id) UNIQUE
 #  index_cakto_conversation_slas_on_first_response_due_at                 (first_response_due_at)
@@ -57,7 +57,7 @@ class CaktoConversationSla < ApplicationRecord
   end
 
   def breach!(kind, at = Time.current)
-    update!("#{kind}_status" => :breached, breached_at: breached_at || at)
+    update!("#{kind}_status" => :breached, 'breached_at' => breached_at || at)
     add_breach_label
     create_breach_activity(kind)
   end

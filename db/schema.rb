@@ -333,8 +333,8 @@ ActiveRecord::Schema[7.1].define(version: 2026_09_22_120000) do
     t.datetime "breached_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["account_id", "first_response_status"], name: "index_cakto_conversation_slas_on_account_id_and_first_response_status"
-    t.index ["account_id", "resolution_status"], name: "index_cakto_conversation_slas_on_account_id_and_resolution_status"
+    t.index ["account_id", "first_response_status"], name: "idx_cakto_conv_slas_acct_fr_status"
+    t.index ["account_id", "resolution_status"], name: "idx_cakto_conv_slas_acct_res_status"
     t.index ["account_id"], name: "index_cakto_conversation_slas_on_account_id"
     t.index ["cakto_sla_policy_id"], name: "index_cakto_conversation_slas_on_cakto_sla_policy_id"
     t.index ["conversation_id"], name: "index_cakto_conversation_slas_on_conversation_id", unique: true

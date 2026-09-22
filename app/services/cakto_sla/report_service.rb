@@ -30,8 +30,8 @@ class CaktoSla::ReportService
   def summarize(rows)
     {
       conversations: rows.size,
-      first_response: bucket(rows.map { |row| row[2] }),
-      resolution: bucket(rows.map { |row| row[3] })
+      first_response: bucket(rows.pluck(2)),
+      resolution: bucket(rows.pluck(3))
     }
   end
 
