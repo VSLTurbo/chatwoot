@@ -1,0 +1,103 @@
+{
+  "CAKTO_SLA": {
+    "BADGE": {
+      "primeira_resposta_EM": "Reply in {tempo}",
+      "primeira_resposta_ATRASADA": "Reply overdue by {tempo}",
+      "resolucao_EM": "Resolve in {tempo}",
+      "resolucao_ATRASADA": "Resolution overdue by {tempo}",
+      "ESTOURADO": "SLA breached",
+      "CUMPRIDO": "SLA met"
+    },
+    "SETTINGS": {
+      "HEADER": "SLA",
+      "DESCRIPTION": "Set first response and resolution targets per inbox. Conversations get a badge with the time left and the \"sla-estourado\" label when a target is missed.",
+      "HEADER_BTN_TXT": "New policy",
+      "LOADING": "Fetching policies",
+      "COUNT": "{n} policy | {n} policies",
+      "SEARCH_PLACEHOLDER": "Search policies...",
+      "NO_RESULTS": "No policy matches your search",
+      "LIST": {
+        "404": "There are no SLA policies in this account yet.",
+        "TABLE_HEADER": {
+          "NAME": "Name",
+          "FIRST_RESPONSE": "First response",
+          "RESOLUTION": "Resolution",
+          "INBOXES": "Inboxes",
+          "STATUS": "Status",
+          "ACTION": "Actions"
+        },
+        "NOT_MEASURED": "Not measured",
+        "ACTIVE": "Active",
+        "INACTIVE": "Inactive",
+        "INBOX_COUNT": "{n} inbox | {n} inboxes"
+      },
+      "FORM": {
+        "ADD_TITLE": "New SLA policy",
+        "EDIT_TITLE": "Edit SLA policy",
+        "NAME": { "LABEL": "Name", "PLACEHOLDER": "E.g. Standard support" },
+        "DESCRIPTION": {
+          "LABEL": "Description",
+          "PLACEHOLDER": "What this policy is for"
+        },
+        "FIRST_RESPONSE": {
+          "LABEL": "First response (minutes)",
+          "PLACEHOLDER": "Leave blank to skip"
+        },
+        "RESOLUTION": {
+          "LABEL": "Resolution (minutes)",
+          "PLACEHOLDER": "Leave blank to skip"
+        },
+        "INBOXES": { "LABEL": "Inboxes", "PLACEHOLDER": "Pick inboxes" },
+        "ACTIVE": "Policy active",
+        "HINT": "An inbox can belong to only one active policy at a time.",
+        "CANCEL": "Cancel",
+        "CREATE": "Create",
+        "SAVE": "Save",
+        "EDIT": "Edit",
+        "DELETE": "Delete"
+      },
+      "API": {
+        "CREATE_SUCCESS": "Policy created",
+        "UPDATE_SUCCESS": "Policy updated",
+        "DELETE_SUCCESS": "Policy deleted",
+        "ERROR": "Could not save. Please try again."
+      },
+      "DELETE": {
+        "TITLE": "Delete policy",
+        "MESSAGE": "Do you really want to delete",
+        "YES": "Yes, delete",
+        "NO": "No, keep it"
+      }
+    },
+    "REPORT": {
+      "HEADER": "SLA",
+      "DESCRIPTION": "Conversations created in the period and how many met the first response and resolution targets.",
+      "ALL_INBOXES": "All inboxes",
+      "LOADING": "Calculating...",
+      "EMPTY": "No conversation with SLA in this period.",
+      "FETCH_ERROR": "Could not load the report.",
+      "TOTALS": {
+        "CONVERSATIONS": "Conversations",
+        "CONVERSATIONS_INFO": "Conversations created in the period in inboxes covered by a policy.",
+        "FIRST_RESPONSE": "First response on time",
+        "FIRST_RESPONSE_INFO": "Share of measured conversations whose first reply was sent within the target.",
+        "RESOLUTION": "Resolution on time",
+        "RESOLUTION_INFO": "Share of measured conversations resolved within the target.",
+        "BREACHED": "Breached",
+        "BREACHED_INFO": "Conversations that missed at least one of the two targets."
+      },
+      "BY_INBOX": "By inbox",
+      "BY_AGENT": "By agent",
+      "UNASSIGNED": "Unassigned",
+      "TABLE": {
+        "INBOX": "Inbox",
+        "AGENT": "Agent",
+        "CONVERSATIONS": "Conversations",
+        "FIRST_RESPONSE": "First response on time",
+        "RESOLUTION": "Resolution on time",
+        "PENDING": "Open"
+      },
+      "RATIO": "{met} of {measured} ({percent}%)"
+    }
+  }
+}

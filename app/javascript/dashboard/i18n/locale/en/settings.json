@@ -380,6 +380,8 @@
     "SET_AVAILABILITY_TITLE": "Set yourself as",
     "SET_YOUR_AVAILABILITY": "Set your availability",
     "SLA": "SLA",
+    "CAKTO_SLA": "SLA",
+    "REPORTS_CAKTO_SLA": "SLA",
     "CUSTOM_ROLES": "Custom Roles",
     "BETA": "Beta",
     "REPORTS_OVERVIEW": "Overview",

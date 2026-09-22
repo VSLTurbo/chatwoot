@@ -704,6 +704,11 @@ const menuItems = computed(() => {
           to: accountScopedRoute('sla_reports'),
         },
         {
+          name: 'Reports Cakto SLA',
+          label: t('SIDEBAR.REPORTS_CAKTO_SLA'),
+          to: accountScopedRoute('cakto_sla_reports'),
+        },
+        {
           name: 'Reports Bot',
           label: t('SIDEBAR.REPORTS_BOT'),
           to: accountScopedRoute('bot_reports'),
@@ -862,6 +867,12 @@ const menuItems = computed(() => {
           label: t('SIDEBAR.LABELS'),
           icon: 'i-lucide-tags',
           to: accountScopedRoute('labels_list'),
+        },
+        {
+          name: 'Settings Cakto SLA',
+          label: t('SIDEBAR.CAKTO_SLA'),
+          icon: 'i-lucide-timer',
+          to: accountScopedRoute('cakto_sla_list'),
         },
         {
           name: 'Settings Custom Attributes',
