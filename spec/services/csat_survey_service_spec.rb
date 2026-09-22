@@ -14,10 +14,7 @@ describe CsatSurveyService do
     before do
       allow(MessageTemplates::Template::CsatSurvey).to receive(:new).and_return(csat_template)
       allow(csat_template).to receive(:perform)
-      allow(Conversations::ActivityMessageJob).to receive(:perform_later) do |*args|
-        # DEBUG-CAKTO (temporário): de onde vem a atividade inesperada
-        puts "DEBUG-CAKTO ActivityMessageJob #{args.last.inspect}\n#{caller.grep(%r{/app/}).first(8).join("\n")}"
-      end
+      allow(Conversations::ActivityMessageJob).to receive(:perform_later)
     end
 
     context 'when CSAT survey should be sent' do

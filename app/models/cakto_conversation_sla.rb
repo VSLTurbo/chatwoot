@@ -44,8 +44,8 @@ class CaktoConversationSla < ApplicationRecord
   belongs_to :conversation, inverse_of: :cakto_sla
   belongs_to :cakto_sla_policy
 
-  enum first_response_status: STATUSES, _prefix: true
-  enum resolution_status: STATUSES, _prefix: true
+  enum :first_response_status, STATUSES, prefix: true
+  enum :resolution_status, STATUSES, prefix: true
 
   validates :conversation_id, uniqueness: true
 
