@@ -41,7 +41,7 @@ class CaktoConversationSla < ApplicationRecord
   }.freeze
 
   belongs_to :account
-  belongs_to :conversation
+  belongs_to :conversation, inverse_of: :cakto_sla
   belongs_to :cakto_sla_policy
 
   enum first_response_status: STATUSES, _prefix: true

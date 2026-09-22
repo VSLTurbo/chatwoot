@@ -132,7 +132,9 @@ class Conversation < ApplicationRecord
   has_many :attachments, through: :messages
   has_many :reporting_events, dependent: :destroy_async
   has_many :automation_rule_pending_executions, dependent: :delete_all
-  has_one :cakto_sla, class_name: 'CaktoConversationSla', dependent: :destroy_async
+  # inverse_of: o ActionCableListener (síncrono) serializa a conversa na criação e deixa
+  # `cakto_sla` em cache como nil; sem o inverso, o SLA criado em seguida não aparece.
+  has_one :cakto_sla, class_name: 'CaktoConversationSla', inverse_of: :conversation, dependent: :destroy_async
 
   before_save :ensure_snooze_until_reset
   before_save :set_status_changed_at

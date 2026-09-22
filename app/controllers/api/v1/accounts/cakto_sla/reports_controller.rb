@@ -6,7 +6,8 @@ class Api::V1::Accounts::CaktoSla::ReportsController < Api::V1::Accounts::BaseCo
     render json: ::CaktoSla::ReportService.new(
       account: Current.account,
       from: params[:since].present? ? Time.zone.at(params[:since].to_i) : 7.days.ago,
-      to: params[:until].present? ? Time.zone.at(params[:until].to_i) : Time.current,
+      # `until` chega em segundos inteiros; +1 s inclui a conversa criada no mesmo segundo.
+      to: params[:until].present? ? Time.zone.at(params[:until].to_i + 1) : Time.current,
       inbox_id: params[:inbox_id]
     ).perform
   end
