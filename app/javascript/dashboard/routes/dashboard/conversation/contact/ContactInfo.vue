@@ -226,11 +226,11 @@ export default {
               {{ contact.name }}
             </h3>
             <NextButton
+              v-tooltip="$t('CONTACT_PANEL.CLICK_TO_EDIT')"
               ghost
               xs
               slate
               icon="i-lucide-pencil"
-              :title="$t('CONTACT_PANEL.CLICK_TO_EDIT')"
               class="flex-shrink-0 -mx-1 opacity-0 transition-opacity"
               :class="
                 isEditingName
@@ -251,6 +251,7 @@ export default {
               class="i-lucide-info text-sm text-n-slate-10"
             />
             <a
+              v-tooltip.left="$t('TOOLTIPS.CONTACT.OPEN_PROFILE')"
               :href="contactProfileLink"
               target="_blank"
               rel="noopener nofollow noreferrer"

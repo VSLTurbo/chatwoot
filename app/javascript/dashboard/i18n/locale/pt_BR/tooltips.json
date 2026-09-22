@@ -40,6 +40,17 @@
       "COPILOT": "Copiloto de IA: sugere e melhora a resposta",
       "TOGGLE_EDITOR_SIZE": "Aumentar ou reduzir a área de escrita",
       "MODE_TOGGLE": "Responder vai para o contato. Nota privada só o time vê"
+    },
+    "COMMON": {
+      "COPY": "Copiar",
+      "EDIT": "Editar",
+      "SAVE": "Salvar",
+      "DELETE": "Apagar"
+    },
+    "CONTACT": {
+      "OPEN_PROFILE": "Abrir a ficha completa do contato",
+      "SECTION_HEADER": "Clique para abrir ou fechar. Arraste para mudar a ordem",
+      "DELETE_NOTE": "Apagar esta nota"
     }
   }
 }

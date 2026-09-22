@@ -40,6 +40,17 @@
       "COPILOT": "AI copilot: suggests and improves the reply",
       "TOGGLE_EDITOR_SIZE": "Expand or shrink the writing area",
       "MODE_TOGGLE": "Reply goes to the contact. Private note is team only"
+    },
+    "COMMON": {
+      "COPY": "Copy",
+      "EDIT": "Edit",
+      "SAVE": "Save",
+      "DELETE": "Delete"
+    },
+    "CONTACT": {
+      "OPEN_PROFILE": "Open the full contact profile",
+      "SECTION_HEADER": "Click to open or close. Drag to reorder",
+      "DELETE_NOTE": "Delete this note"
     }
   }
 }

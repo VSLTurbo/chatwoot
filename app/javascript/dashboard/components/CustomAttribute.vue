@@ -256,6 +256,7 @@ export default {
           />
           <div>
             <NextButton
+              v-tooltip="$t('TOOLTIPS.COMMON.SAVE')"
               sm
               icon="i-lucide-check"
               class="ltr:rounded-l-none rtl:rounded-r-none h-[34px]"
