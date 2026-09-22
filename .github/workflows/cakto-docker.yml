@@ -1,0 +1,53 @@
+# Imagem própria do fork (edição EE, igual à chatwoot/chatwoot:vX oficial que roda em produção).
+# Publica em ghcr.io/vslturbo/chatwoot:cakto e :cakto-<sha7>. Só linux/amd64 (droplet é amd64).
+name: Publicar imagem Docker (cakto)
+
+on:
+  push:
+    branches:
+      - cakto
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: write
+
+concurrency:
+  group: cakto-docker
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Definir edição (EE, como a imagem oficial)
+        run: echo -en '\nENV CW_EDITION="ee"' >> docker/Dockerfile
+
+      - name: Tags
+        run: echo "SHA7=${GITHUB_SHA::7}" >> "$GITHUB_ENV"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Login no GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build e push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: docker/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/vslturbo/chatwoot:cakto
+            ghcr.io/vslturbo/chatwoot:cakto-${{ env.SHA7 }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
