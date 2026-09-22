@@ -6,6 +6,8 @@ RSpec.describe 'Cakto SLA Policies API', type: :request do
   let(:admin) { create(:user, account: account, role: :administrator) }
   let(:inbox) { create(:inbox, account: account) }
 
+  before { account.enable_features!('cakto_sla') }
+
   describe 'GET /api/v1/accounts/{account.id}/cakto_sla_policies' do
     it 'returns unauthorized for an unauthenticated user' do
       get "/api/v1/accounts/#{account.id}/cakto_sla_policies"

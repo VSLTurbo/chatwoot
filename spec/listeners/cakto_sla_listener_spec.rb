@@ -6,6 +6,8 @@ describe CaktoSlaListener do
   let(:inbox) { create(:inbox, account: account) }
   let(:conversation) { create(:conversation, account: account, inbox: inbox) }
 
+  before { account.enable_features!('cakto_sla') }
+
   describe '#conversation_created' do
     it 'applies the policy covering the inbox' do
       create(:cakto_sla_policy, account: account, inbox_ids: [inbox.id])

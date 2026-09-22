@@ -4,6 +4,8 @@ RSpec.describe CaktoSla::BreachJob do
   let(:account) { create(:account) }
   let(:policy) { create(:cakto_sla_policy, account: account, name: 'Suporte') }
 
+  before { account.enable_features!('cakto_sla') }
+
   def sla_with(first_response_due_at: 1.hour.from_now, resolution_due_at: 1.day.from_now)
     create(:cakto_conversation_sla, account: account, cakto_sla_policy: policy,
                                     first_response_due_at: first_response_due_at, resolution_due_at: resolution_due_at)

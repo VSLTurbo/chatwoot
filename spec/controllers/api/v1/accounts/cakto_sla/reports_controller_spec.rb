@@ -8,6 +8,7 @@ RSpec.describe 'Cakto SLA Report API', type: :request do
 
   describe 'GET /api/v1/accounts/{account.id}/cakto_sla/report' do
     before do
+      account.enable_features!('cakto_sla')
       conversation = create(:conversation, account: account, inbox: inbox, assignee: agent)
       create(:cakto_conversation_sla, account: account, conversation: conversation, first_response_status: :met)
     end

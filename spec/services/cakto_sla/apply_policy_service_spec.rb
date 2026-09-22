@@ -5,6 +5,8 @@ describe CaktoSla::ApplyPolicyService do
   let(:inbox) { create(:inbox, account: account) }
   let(:conversation) { create(:conversation, account: account, inbox: inbox) }
 
+  before { account.enable_features!('cakto_sla') }
+
   it 'creates the conversation sla from the active policy covering the inbox' do
     policy = create(:cakto_sla_policy, account: account, inbox_ids: [inbox.id], first_response_minutes: 15, resolution_minutes: 480)
 
