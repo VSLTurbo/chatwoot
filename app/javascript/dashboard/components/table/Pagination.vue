@@ -122,6 +122,7 @@ onMounted(() => {
         />
         <nav class="isolate inline-flex items-center gap-1.5">
           <Button
+            v-tooltip="$t('TOOLTIPS.PAGINATION.FIRST')"
             icon="i-lucide-chevrons-left"
             ghost
             slate
@@ -131,6 +132,7 @@ onMounted(() => {
             @click="table.setPageIndex(0)"
           />
           <Button
+            v-tooltip="$t('TOOLTIPS.PAGINATION.PREV')"
             icon="i-lucide-chevron-left"
             ghost
             slate
@@ -156,6 +158,7 @@ onMounted(() => {
             </span>
           </Button>
           <Button
+            v-tooltip="$t('TOOLTIPS.PAGINATION.NEXT')"
             icon="i-lucide-chevron-right"
             ghost
             slate
@@ -165,6 +168,7 @@ onMounted(() => {
             @click="table.nextPage()"
           />
           <Button
+            v-tooltip="$t('TOOLTIPS.PAGINATION.LAST')"
             icon="i-lucide-chevrons-right"
             ghost
             slate

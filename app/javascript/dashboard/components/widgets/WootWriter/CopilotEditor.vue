@@ -251,6 +251,7 @@ onBeforeUnmount(() => {
       <div ref="editor" />
       <div class="flex items-center justify-end absolute end-2 bottom-2">
         <NextButton
+          v-tooltip="$t('TOOLTIPS.COMPOSER.COPILOT_SEND')"
           class="bg-n-iris-9 text-white !rounded-full"
           icon="i-lucide-arrow-up"
           solid

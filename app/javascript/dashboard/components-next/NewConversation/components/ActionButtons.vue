@@ -210,6 +210,7 @@ useEventListener(document, 'paste', onPaste);
         class="relative"
       >
         <Button
+          v-tooltip="$t('CONVERSATION.REPLYBOX.TIP_EMOJI_ICON')"
           icon="i-lucide-smile-plus"
           color="slate"
           size="sm"
@@ -239,6 +240,7 @@ useEventListener(document, 'paste', onPaste);
         @input-file="onFileUpload"
       >
         <Button
+          v-tooltip="$t('CONVERSATION.REPLYBOX.TIP_ATTACH_ICON')"
           icon="i-lucide-plus"
           color="slate"
           size="sm"
@@ -247,6 +249,7 @@ useEventListener(document, 'paste', onPaste);
       </FileUpload>
       <Button
         v-if="shouldShowSignatureButton"
+        v-tooltip="$t('CONVERSATION.FOOTER.MESSAGE_SIGN_TOOLTIP')"
         icon="i-lucide-signature"
         color="slate"
         size="sm"

@@ -259,6 +259,7 @@ watch(
       >
         <component
           :is="linkTo ? 'router-link' : 'button'"
+          v-tooltip.right="hasChildren ? undefined : label"
           :to="linkTo"
           type="button"
           class="flex items-center justify-center size-10 rounded-lg"
@@ -266,7 +267,6 @@ watch(
             'text-n-slate-12 bg-n-alpha-2': isActive || hasActiveChild,
             'text-n-slate-11 hover:bg-n-alpha-2': !isActive && !hasActiveChild,
           }"
-          :title="label"
         >
           <Icon v-if="icon" :icon="icon" class="size-4" />
         </component>

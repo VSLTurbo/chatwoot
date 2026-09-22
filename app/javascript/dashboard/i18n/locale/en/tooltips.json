@@ -1,0 +1,119 @@
+{
+  "TOOLTIPS": {
+    "SIDEBAR": {
+      "NEW_CONVERSATION": "Start a conversation with a contact",
+      "NEW_TICKET": "Open an internal ticket for another team",
+      "SEARCH": "Search conversations, contacts and messages",
+      "SWITCH_ACCOUNT": "Switch account",
+      "PROFILE_MENU": "Profile, status and sign out",
+      "COLLAPSE_SECTION": "Collapse this section",
+      "EXPAND_SECTION": "Expand this section",
+      "RESIZE": "Drag to resize. Double-click to collapse or expand the sidebar",
+      "CHANGELOG": "What's new",
+      "OPEN_MENU": "Open the menu",
+      "CHANGE_STATUS": "Change your status: online, busy or offline"
+    },
+    "CONVERSATION": {
+      "COPY_ID": "Copy the conversation number",
+      "RESOLVE": "Close the conversation. It leaves the queue",
+      "REOPEN": "Send the conversation back to the open queue",
+      "OPEN": "Take it out of pending and back to the open queue",
+      "MORE_STATUS": "Snooze for a while or mark as pending",
+      "CAKTO_TICKET_BADGE": "Internal request opened by someone at Cakto for another team",
+      "CAKTO_SLA": {
+        "primeira_resposta": "Time left for the first reply to the customer",
+        "resolucao": "Time left to resolve the conversation",
+        "estourado": "An SLA deadline was missed on this conversation",
+        "cumprido": "All SLA deadlines were met"
+      }
+    },
+    "CHAT_LIST": {
+      "TABS": {
+        "me": "Conversations assigned to you",
+        "unassigned": "Conversations without an assignee yet",
+        "all": "All conversations, assigned or not"
+      }
+    },
+    "COMPOSER": {
+      "AUDIO_PLAY_PAUSE": "Play or pause the recording",
+      "CONTENT_TEMPLATES": "Approved content templates",
+      "SEND": "Send the message to the contact",
+      "SEND_NOTE": "Save the note. Only the team sees it",
+      "COPILOT": "AI copilot: suggests and improves the reply",
+      "TOGGLE_EDITOR_SIZE": "Expand or shrink the writing area",
+      "MODE_TOGGLE": "Reply goes to the contact. Private note is team only",
+      "COPILOT_SEND": "Send the instruction to the copilot"
+    },
+    "COMMON": {
+      "COPY": "Copy",
+      "EDIT": "Edit",
+      "SAVE": "Save",
+      "DELETE": "Delete",
+      "DRAG_TO_REORDER": "Drag to reorder",
+      "REMOVE": "Remove",
+      "DISMISS": "Dismiss",
+      "MORE_ACTIONS": "More actions",
+      "LIST_OPTIONS": "List options",
+      "MESSAGE_MORE": "More options for this message",
+      "OPEN": "Open",
+      "OPEN_NEW_TAB": "Open in a new tab",
+      "UNLINK": "Unlink",
+      "REFRESH": "Refresh",
+      "OPEN_COPILOT": "Open the AI copilot"
+    },
+    "CONTACT": {
+      "OPEN_PROFILE": "Open the full contact profile",
+      "SECTION_HEADER": "Click to open or close. Drag to reorder",
+      "DELETE_NOTE": "Delete this note"
+    },
+    "CAKTO_TICKETS": {
+      "TEAM": "Cakto team that will receive and answer the request",
+      "PRIORITY": "Urgency for the team. Urgent goes first in the queue",
+      "RELATED": "Number of the customer conversation that originated the request",
+      "SELLER": "Seller the request is about, so the team can find it"
+    },
+    "CAKTO_SLA": {
+      "FIRST_RESPONSE": "Deadline, in minutes, for the team's first reply",
+      "RESOLUTION": "Deadline, in minutes, to resolve the conversation",
+      "INBOXES": "Inboxes this deadline applies to. Each inbox fits only one active policy",
+      "ACTIVE": "Only an active policy counts deadlines on conversations",
+      "REPORT_INBOX_FILTER": "Show only conversations from one inbox",
+      "REPORT_FIRST_RESPONSE": "On time among measured ones. Measured means it already got a first reply or already breached",
+      "REPORT_RESOLUTION": "On time among measured ones. Measured means already resolved or already breached",
+      "REPORT_PENDING": "Deadlines still running: not replied or resolved yet and not breached"
+    },
+    "CAMPAIGNS": {
+      "EDIT": "Edit campaign",
+      "DELETE": "Delete campaign"
+    },
+    "CONTACTS": {
+      "EXPAND_CARD": "Show more contact details",
+      "COLLAPSE_CARD": "Hide contact details",
+      "SHOW_SIDEBAR": "Show the side panel",
+      "HIDE_SIDEBAR": "Hide the side panel",
+      "REMOVE_FILE": "Remove the chosen file",
+      "FILTER": "Filter contacts",
+      "EDIT_SEGMENT": "Edit this segment's filters",
+      "SAVE_SEGMENT": "Save these filters as a segment",
+      "DELETE_SEGMENT": "Delete this segment",
+      "MORE_ACTIONS": "More actions: import and export",
+      "SORT": "Sort the list"
+    },
+    "PAGINATION": {
+      "FIRST": "First page",
+      "PREV": "Previous",
+      "NEXT": "Next",
+      "LAST": "Last page"
+    },
+    "GALLERY": {
+      "ZOOM_IN": "Zoom in",
+      "ZOOM_OUT": "Zoom out",
+      "ROTATE_LEFT": "Rotate left",
+      "ROTATE_RIGHT": "Rotate right",
+      "DOWNLOAD": "Download",
+      "EXPAND": "Expand",
+      "PREV": "Previous file",
+      "NEXT": "Next file"
+    }
+  }
+}

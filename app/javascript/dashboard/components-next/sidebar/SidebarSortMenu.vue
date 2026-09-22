@@ -174,7 +174,7 @@ onBeforeUnmount(clearCloseTimer);
     @mouseleave="handleTriggerLeave"
   >
     <Button
-      :title="t('SIDEBAR.SORT_TOOLTIP')"
+      v-tooltip="t('SIDEBAR.SORT_TOOLTIP')"
       icon="i-lucide-arrow-up-down"
       ghost
       slate

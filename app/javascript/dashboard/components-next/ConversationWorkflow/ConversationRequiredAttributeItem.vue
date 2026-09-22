@@ -52,7 +52,14 @@ const handleDelete = () => {
       </div>
     </div>
     <div class="flex gap-2 items-center">
-      <Button icon="i-lucide-trash" sm slate ghost @click.stop="handleDelete" />
+      <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
+        icon="i-lucide-trash"
+        sm
+        slate
+        ghost
+        @click.stop="handleDelete"
+      />
     </div>
   </div>
 </template>

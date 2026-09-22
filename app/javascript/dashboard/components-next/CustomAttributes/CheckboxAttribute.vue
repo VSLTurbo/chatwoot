@@ -35,6 +35,7 @@ const handleChange = value => {
     <Switch v-model="attributeValue" @change="handleChange" />
     <Button
       v-if="isEditingView"
+      v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
       variant="faded"
       color="ruby"
       icon="i-lucide-trash"

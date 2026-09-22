@@ -77,12 +77,14 @@ const attributeIcon = computed(() => {
       </div>
       <div class="flex gap-3 justify-end flex-shrink-0">
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
           icon="i-woot-edit-pen"
           slate
           sm
           @click="emit('edit', attribute)"
         />
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
           icon="i-woot-bin"
           slate
           sm

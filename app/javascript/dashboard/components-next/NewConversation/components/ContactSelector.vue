@@ -125,6 +125,7 @@ const handleInput = value => {
         </span>
         <Button
           v-if="!contactId"
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           variant="ghost"
           icon="i-lucide-x"
           color="slate"

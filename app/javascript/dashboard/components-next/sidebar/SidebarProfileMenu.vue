@@ -135,12 +135,16 @@ const allowedMenuItems = computed(() => {
   >
     <template #trigger="{ toggle, isOpen }">
       <button
+        v-tooltip.right="
+          isCollapsed
+            ? `${currentUser.available_name}. ${t('TOOLTIPS.SIDEBAR.PROFILE_MENU')}`
+            : t('TOOLTIPS.SIDEBAR.PROFILE_MENU')
+        "
         class="flex gap-2 items-center p-1 text-left rounded-lg cursor-pointer hover:bg-n-alpha-1"
         :class="[
           { 'bg-n-alpha-1': isOpen },
           isCollapsed ? 'justify-center' : 'w-full',
         ]"
-        :title="isCollapsed ? currentUser.available_name : undefined"
         @click="toggle"
       >
         <Avatar

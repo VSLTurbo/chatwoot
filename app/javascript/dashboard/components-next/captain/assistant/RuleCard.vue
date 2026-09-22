@@ -79,9 +79,17 @@ const saveEdit = () => {
       {{ localContent }}
     </span>
     <div class="flex items-center gap-2">
-      <Button icon="i-lucide-pen" slate xs ghost @click="startEdit" />
+      <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
+        icon="i-lucide-pen"
+        slate
+        xs
+        ghost
+        @click="startEdit"
+      />
       <span class="w-px h-4 bg-n-weak" />
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
         icon="i-lucide-trash"
         slate
         xs

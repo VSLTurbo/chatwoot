@@ -97,6 +97,7 @@ defineExpose({ open, close });
         </p>
       </div>
       <Button
+        v-tooltip="$t('GENERAL.CLOSE')"
         icon="i-lucide-x"
         variant="ghost"
         color="slate"

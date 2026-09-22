@@ -50,7 +50,14 @@ useKeyboardEvents(keyboardEvents);
       <h3 class="text-base text-n-slate-12">
         {{ title }}
       </h3>
-      <Button ghost xs slate icon="i-lucide-x" @click="onClose" />
+      <Button
+        v-tooltip="$t('GENERAL.CLOSE')"
+        ghost
+        xs
+        slate
+        icon="i-lucide-x"
+        @click="onClose"
+      />
     </div>
 
     <div class="relative">

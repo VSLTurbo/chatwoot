@@ -89,6 +89,7 @@ const handleCopy = async text => {
           <span class="flex-1">{{ item.value }}</span>
         </div>
         <NextButton
+          v-tooltip="$t('TOOLTIPS.COMMON.COPY')"
           type="button"
           ghost
           sm

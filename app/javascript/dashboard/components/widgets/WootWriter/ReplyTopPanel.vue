@@ -171,6 +171,7 @@ export default {
       <div class="relative">
         <NextButton
           ref="copilotToggleRef"
+          v-tooltip.bottom="$t('TOOLTIPS.COMPOSER.COPILOT')"
           ghost
           :disabled="disabled || isEditorDisabled"
           :class="{
@@ -195,6 +196,7 @@ export default {
         />
       </div>
       <NextButton
+        v-tooltip.bottom="$t('TOOLTIPS.COMPOSER.TOGGLE_EDITOR_SIZE')"
         ghost
         class="text-n-slate-11"
         sm

@@ -165,6 +165,7 @@ const getInboxName = inboxId => {
           </div>
 
           <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
             type="button"
             slate
             icon="i-lucide-trash"

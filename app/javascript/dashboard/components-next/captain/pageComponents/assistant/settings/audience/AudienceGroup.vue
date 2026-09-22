@@ -95,6 +95,7 @@ defineExpose({ validate });
       </div>
       <Button
         v-if="!isRoot"
+        v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
         sm
         ghost
         slate

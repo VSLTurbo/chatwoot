@@ -124,6 +124,7 @@ const handleAction = ({ action, value }) => {
           class="relative group"
         >
           <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.MORE_ACTIONS')"
             icon="i-lucide-ellipsis-vertical"
             color="slate"
             size="xs"

@@ -25,6 +25,7 @@ const closePopover = () => {
   <div v-on-click-outside="closePopover" class="relative mb-2">
     <Button
       v-if="shouldShowButton"
+      v-tooltip.right="$t('TOOLTIPS.SIDEBAR.CHANGELOG')"
       icon="i-lucide-sparkles"
       ghost
       slate

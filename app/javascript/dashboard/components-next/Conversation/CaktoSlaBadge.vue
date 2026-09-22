@@ -43,7 +43,9 @@ const TONS = {
 <template>
   <span
     v-if="estado"
-    v-tooltip.top="chat.cakto_sla.policy_name"
+    v-tooltip.top="
+      `${chat.cakto_sla.policy_name}. ${t(`TOOLTIPS.CONVERSATION.CAKTO_SLA.${estado.fase}`)}`
+    "
     class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md text-xs font-medium whitespace-nowrap flex-shrink-0"
     :class="TONS[estado.tom]"
   >

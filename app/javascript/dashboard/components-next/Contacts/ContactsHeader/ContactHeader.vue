@@ -64,6 +64,11 @@ const emit = defineEmits([
             <div v-if="!isLabelView && !isActiveView" class="relative">
               <Button
                 id="toggleContactsFilterButton"
+                v-tooltip.bottom="
+                  isSegmentsView
+                    ? $t('TOOLTIPS.CONTACTS.EDIT_SEGMENT')
+                    : $t('TOOLTIPS.CONTACTS.FILTER')
+                "
                 :icon="
                   isSegmentsView ? 'i-lucide-pen-line' : 'i-lucide-list-filter'
                 "
@@ -87,6 +92,7 @@ const emit = defineEmits([
                 !isLabelView &&
                 !isActiveView
               "
+              v-tooltip.bottom="$t('TOOLTIPS.CONTACTS.SAVE_SEGMENT')"
               icon="i-lucide-save"
               color="slate"
               size="sm"
@@ -95,6 +101,7 @@ const emit = defineEmits([
             />
             <Button
               v-if="isSegmentsView && !isLabelView && !isActiveView"
+              v-tooltip.bottom="$t('TOOLTIPS.CONTACTS.DELETE_SEGMENT')"
               icon="i-lucide-trash"
               color="slate"
               size="sm"

@@ -113,6 +113,7 @@ defineExpose({ dialogRef });
             />
             <div class="w-px h-3 bg-n-strong" />
             <Button
+              v-tooltip="$t('TOOLTIPS.CONTACTS.REMOVE_FILE')"
               icon="i-lucide-trash"
               color="slate"
               variant="ghost"

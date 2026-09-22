@@ -315,6 +315,7 @@ const onDraftFailed = error => {
           <div class="relative">
             <OnClickOutside @trigger="showArticleActionMenu = false">
               <Button
+                v-tooltip="$t('TOOLTIPS.COMMON.MORE_ACTIONS')"
                 icon="i-lucide-chevron-down"
                 size="sm"
                 :disabled="!articleId"

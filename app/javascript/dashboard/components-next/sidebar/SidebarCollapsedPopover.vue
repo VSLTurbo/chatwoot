@@ -155,6 +155,11 @@ onMounted(async () => {
                     @toggle="handleSortToggle"
                   />
                   <button
+                    v-tooltip="
+                      expandedSubGroup === child.name
+                        ? $t('TOOLTIPS.SIDEBAR.COLLAPSE_SECTION')
+                        : $t('TOOLTIPS.SIDEBAR.EXPAND_SECTION')
+                    "
                     type="button"
                     class="flex size-6 flex-shrink-0 items-center justify-center rounded-md text-n-slate-11 hover:bg-n-alpha-2 focus-visible:bg-n-alpha-2 focus-visible:outline-none"
                     @click.stop="toggleSubGroup(child.name)"

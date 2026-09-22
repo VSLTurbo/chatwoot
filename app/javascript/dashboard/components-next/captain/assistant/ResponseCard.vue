@@ -181,6 +181,7 @@ const handleViewConversations = () => {
           class="relative flex items-center group"
         >
           <Button
+            v-tooltip="$t('TOOLTIPS.COMMON.MORE_ACTIONS')"
             icon="i-lucide-ellipsis-vertical"
             color="slate"
             size="xs"

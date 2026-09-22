@@ -43,6 +43,7 @@ const handleMouseEnter = () => {
       :class="{ 'w-6': isHovered }"
     >
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
         class="transition-opacity duration-200 !h-7 ltr:rounded-r-md rtl:rounded-l-md ltr:rounded-l-none rtl:rounded-r-none w-6 bg-transparent"
         :class="{ 'opacity-0': !isHovered, 'opacity-100': isHovered }"
         type="button"

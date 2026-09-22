@@ -194,6 +194,11 @@ const handleAvatarHover = isHovered => {
       </div>
 
       <Button
+        v-tooltip="
+          isExpanded
+            ? $t('TOOLTIPS.CONTACTS.COLLAPSE_CARD')
+            : $t('TOOLTIPS.CONTACTS.EXPAND_CARD')
+        "
         icon="i-lucide-chevron-down"
         variant="ghost"
         color="slate"

@@ -82,6 +82,7 @@ defineExpose({ dialogRef });
     @close="resetForm"
   >
     <NextButton
+      v-tooltip="$t('GENERAL.CLOSE')"
       icon="i-lucide-x"
       sm
       ghost
@@ -114,6 +115,7 @@ defineExpose({ dialogRef });
             {{ subdomainCNAME }}
           </span>
           <NextButton
+            v-tooltip="$t('TOOLTIPS.COMMON.COPY')"
             faded
             slate
             type="button"

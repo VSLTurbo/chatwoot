@@ -158,6 +158,11 @@ const closeMobileSidebar = () => {
         ]"
       >
         <Button
+          v-tooltip.left="
+            isContactSidebarOpen
+              ? $t('TOOLTIPS.CONTACTS.HIDE_SIDEBAR')
+              : $t('TOOLTIPS.CONTACTS.SHOW_SIDEBAR')
+          "
           ghost
           slate
           sm

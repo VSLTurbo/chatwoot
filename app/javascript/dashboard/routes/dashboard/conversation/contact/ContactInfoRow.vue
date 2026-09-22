@@ -121,6 +121,7 @@ export default {
       </span>
       <NextButton
         v-if="showCopy"
+        v-tooltip="$t('TOOLTIPS.COMMON.COPY')"
         ghost
         xs
         slate
@@ -130,6 +131,7 @@ export default {
       />
       <NextButton
         v-if="editable"
+        v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
         ghost
         xs
         slate
@@ -157,6 +159,7 @@ export default {
       </span>
       <NextButton
         v-if="showCopy"
+        v-tooltip="$t('TOOLTIPS.COMMON.COPY')"
         ghost
         xs
         slate
@@ -166,6 +169,7 @@ export default {
       />
       <NextButton
         v-if="editable"
+        v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
         ghost
         xs
         slate

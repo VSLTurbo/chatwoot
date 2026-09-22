@@ -28,6 +28,7 @@ const handleAction = ({ action }) => {
 <template>
   <div v-on-clickaway="() => (showActionsDropdown = false)" class="relative">
     <Button
+      v-tooltip="$t('TOOLTIPS.COMMON.MORE_ACTIONS')"
       icon="i-lucide-ellipsis-vertical"
       color="slate"
       variant="ghost"

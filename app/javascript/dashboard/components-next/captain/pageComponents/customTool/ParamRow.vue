@@ -96,6 +96,7 @@ defineExpose({ validate });
         </label>
       </div>
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
         solid
         slate
         icon="i-lucide-trash"

@@ -54,6 +54,7 @@ const removeAttachment = id => {
           :src="attachment.thumb"
         />
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           variant="ghost"
           icon="i-lucide-trash"
           color="slate"
@@ -75,6 +76,7 @@ const removeAttachment = id => {
           {{ fileNameWithEllipsis(attachment.resource) }}
         </span>
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.REMOVE')"
           variant="ghost"
           icon="i-lucide-x"
           color="slate"

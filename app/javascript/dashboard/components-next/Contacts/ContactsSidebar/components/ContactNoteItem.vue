@@ -83,6 +83,7 @@ onMounted(() => {
       </div>
       <Button
         v-if="allowDelete"
+        v-tooltip="$t('TOOLTIPS.CONTACT.DELETE_NOTE')"
         variant="faded"
         color="ruby"
         size="xs"

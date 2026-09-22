@@ -53,6 +53,7 @@ const dropdownValues = () => {
   <div class="relative flex items-start w-full min-w-0 basis-full">
     <NextButton
       v-if="!singleNode"
+      v-tooltip="$t('TOOLTIPS.COMMON.DRAG_TO_REORDER')"
       ghost
       sm
       slate

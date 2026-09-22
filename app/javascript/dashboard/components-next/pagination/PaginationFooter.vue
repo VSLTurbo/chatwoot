@@ -80,6 +80,7 @@ const pageInfo = computed(() => {
     </div>
     <div class="flex items-center gap-2">
       <Button
+        v-tooltip="$t('TOOLTIPS.PAGINATION.FIRST')"
         icon="i-lucide-chevrons-left"
         variant="ghost"
         size="sm"
@@ -89,6 +90,7 @@ const pageInfo = computed(() => {
         @click="changePage(1)"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.PAGINATION.PREV')"
         icon="i-lucide-chevron-left"
         variant="ghost"
         color="slate"
@@ -108,6 +110,7 @@ const pageInfo = computed(() => {
         </span>
       </div>
       <Button
+        v-tooltip="$t('TOOLTIPS.PAGINATION.NEXT')"
         icon="i-lucide-chevron-right"
         variant="ghost"
         color="slate"
@@ -117,6 +120,7 @@ const pageInfo = computed(() => {
         @click="changePage(currentPage + 1)"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.PAGINATION.LAST')"
         icon="i-lucide-chevrons-right"
         variant="ghost"
         color="slate"

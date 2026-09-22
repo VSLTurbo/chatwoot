@@ -194,6 +194,7 @@ export default {
     />
     <NextButton
       v-if="!hideButton"
+      v-tooltip="$t('TOOLTIPS.COMMON.MESSAGE_MORE')"
       ghost
       slate
       sm

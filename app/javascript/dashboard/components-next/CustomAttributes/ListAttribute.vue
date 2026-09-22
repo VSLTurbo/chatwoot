@@ -80,6 +80,7 @@ const handleAttributeAction = async action => {
 
     <div v-if="isEditingView" class="flex items-center gap-1">
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.EDIT')"
         variant="faded"
         color="slate"
         icon="i-lucide-pencil"
@@ -88,6 +89,7 @@ const handleAttributeAction = async action => {
         @click="toggleAttributeListDropdown()"
       />
       <Button
+        v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
         variant="faded"
         color="ruby"
         icon="i-lucide-trash"

@@ -91,6 +91,7 @@ const handleNavigate = item => {
 
       <div class="col-span-1 justify-end flex items-center">
         <Button
+          v-tooltip="$t('TOOLTIPS.COMMON.DELETE')"
           icon="i-lucide-trash"
           slate
           ghost

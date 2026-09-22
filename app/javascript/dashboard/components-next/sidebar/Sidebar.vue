@@ -1019,6 +1019,7 @@ const menuItems = computed(() => {
       >
         <RouterLink
           v-if="!isEffectivelyCollapsed"
+          v-tooltip.bottom="t('TOOLTIPS.SIDEBAR.SEARCH')"
           :to="{ name: 'search' }"
           class="flex gap-2 items-center px-2 py-1 w-full h-7 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out"
         >
@@ -1034,15 +1035,16 @@ const menuItems = computed(() => {
         </RouterLink>
         <RouterLink
           v-else
+          v-tooltip.right="t('TOOLTIPS.SIDEBAR.SEARCH')"
           :to="{ name: 'search' }"
           class="flex items-center justify-center size-8 rounded-lg outline outline-1 outline-n-weak bg-n-button-color transition-all duration-100 ease-out hover:bg-n-alpha-2 dark:hover:bg-n-slate-9/30"
-          :title="t('COMBOBOX.SEARCH_PLACEHOLDER')"
         >
           <span class="i-lucide-search size-4 text-n-slate-11" />
         </RouterLink>
         <ComposeConversation align="start">
           <template #trigger="{ isOpen }">
             <Button
+              v-tooltip.right="t('TOOLTIPS.SIDEBAR.NEW_CONVERSATION')"
               icon="i-lucide-pen-line"
               color="slate"
               size="sm"
@@ -1061,12 +1063,12 @@ const menuItems = computed(() => {
            lápis. O Ítalo não achou a versão só com ícone (22/09/2026). -->
       <div v-if="hasCaktoTickets" class="flex mt-2">
         <Button
+          v-tooltip.right="t('TOOLTIPS.SIDEBAR.NEW_TICKET')"
           icon="i-lucide-ticket-plus"
           :label="isEffectivelyCollapsed ? '' : t('SIDEBAR.CAKTO_TICKETS')"
           color="blue"
           size="sm"
           :class="isEffectivelyCollapsed ? '!size-8' : 'w-full'"
-          :title="t('SIDEBAR.CAKTO_TICKETS')"
           @click="novoTicketRef?.open()"
         />
         <NovoTicketDialog ref="novoTicketRef" />
@@ -1119,6 +1121,7 @@ const menuItems = computed(() => {
     </section>
     <!-- Resize Handle (desktop only) -->
     <div
+      v-tooltip.right="t('TOOLTIPS.SIDEBAR.RESIZE')"
       class="hidden md:block absolute top-0 h-full w-1 cursor-col-resize z-40 ltr:right-0 rtl:left-0 group"
       @mousedown="onResizeStart"
       @touchstart="onResizeStart"

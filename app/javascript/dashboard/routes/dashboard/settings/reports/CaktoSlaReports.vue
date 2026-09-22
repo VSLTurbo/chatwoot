@@ -114,6 +114,7 @@ const pending = row =>
       />
       <select
         v-model="inboxId"
+        v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_INBOX_FILTER')"
         class="!mb-0 h-10 max-w-xs text-sm rounded-lg border-n-weak bg-n-alpha-black2 text-n-slate-12"
       >
         <option value="">{{ $t('CAKTO_SLA.REPORT.ALL_INBOXES') }}</option>
@@ -154,9 +155,21 @@ const pending = row =>
               </span>
             </BaseTableCell>
             <BaseTableCell>{{ row.conversations }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.first_response) }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.resolution) }}</BaseTableCell>
-            <BaseTableCell>{{ pending(row) }}</BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_FIRST_RESPONSE')"
+            >
+              {{ ratio(row.first_response) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_RESOLUTION')"
+            >
+              {{ ratio(row.resolution) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_PENDING')"
+            >
+              {{ pending(row) }}
+            </BaseTableCell>
           </BaseTableRow>
         </template>
       </BaseTable>
@@ -184,9 +197,21 @@ const pending = row =>
               </span>
             </BaseTableCell>
             <BaseTableCell>{{ row.conversations }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.first_response) }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.resolution) }}</BaseTableCell>
-            <BaseTableCell>{{ pending(row) }}</BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_FIRST_RESPONSE')"
+            >
+              {{ ratio(row.first_response) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_RESOLUTION')"
+            >
+              {{ ratio(row.resolution) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_PENDING')"
+            >
+              {{ pending(row) }}
+            </BaseTableCell>
           </BaseTableRow>
         </template>
       </BaseTable>
@@ -210,9 +235,21 @@ const pending = row =>
               </span>
             </BaseTableCell>
             <BaseTableCell>{{ row.conversations }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.first_response) }}</BaseTableCell>
-            <BaseTableCell>{{ ratio(row.resolution) }}</BaseTableCell>
-            <BaseTableCell>{{ pending(row) }}</BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_FIRST_RESPONSE')"
+            >
+              {{ ratio(row.first_response) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_RESOLUTION')"
+            >
+              {{ ratio(row.resolution) }}
+            </BaseTableCell>
+            <BaseTableCell
+              v-tooltip.top="$t('TOOLTIPS.CAKTO_SLA.REPORT_PENDING')"
+            >
+              {{ pending(row) }}
+            </BaseTableCell>
           </BaseTableRow>
         </template>
       </BaseTable>

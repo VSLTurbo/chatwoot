@@ -63,6 +63,7 @@ onMounted(() => {
         }}
       </h3>
       <Button
+        v-tooltip="$t('GENERAL.CLOSE')"
         icon="i-lucide-x"
         size="sm"
         variant="ghost"
