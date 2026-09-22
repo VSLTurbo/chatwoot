@@ -1,0 +1,94 @@
+{
+  "CAKTO_SLA": {
+    "BADGE": {
+      "primeira_resposta_EM": "Responder em {tempo}",
+      "primeira_resposta_ATRASADA": "Resposta atrasada há {tempo}",
+      "resolucao_EM": "Resolver em {tempo}",
+      "resolucao_ATRASADA": "Resolução atrasada há {tempo}",
+      "ESTOURADO": "SLA estourado",
+      "CUMPRIDO": "SLA cumprido"
+    },
+    "SETTINGS": {
+      "HEADER": "SLA",
+      "DESCRIPTION": "Defina prazos de primeira resposta e de resolução por caixa de entrada. A conversa ganha um selo com o tempo restante e, se estourar, recebe a etiqueta \"sla-estourado\".",
+      "HEADER_BTN_TXT": "Nova política",
+      "LOADING": "Buscando políticas",
+      "COUNT": "{n} política | {n} políticas",
+      "SEARCH_PLACEHOLDER": "Pesquisar políticas...",
+      "NO_RESULTS": "Nenhuma política encontrada com esse nome",
+      "LIST": {
+        "404": "Ainda não há política de SLA nesta conta.",
+        "TABLE_HEADER": {
+          "NAME": "Nome",
+          "FIRST_RESPONSE": "Primeira resposta",
+          "RESOLUTION": "Resolução",
+          "INBOXES": "Caixas de entrada",
+          "STATUS": "Situação",
+          "ACTION": "Ações"
+        },
+        "NOT_MEASURED": "Não mede",
+        "ACTIVE": "Ativa",
+        "INACTIVE": "Inativa",
+        "INBOX_COUNT": "{n} caixa | {n} caixas"
+      },
+      "FORM": {
+        "ADD_TITLE": "Nova política de SLA",
+        "EDIT_TITLE": "Editar política de SLA",
+        "NAME": { "LABEL": "Nome", "PLACEHOLDER": "Ex.: Suporte padrão" },
+        "DESCRIPTION": { "LABEL": "Descrição", "PLACEHOLDER": "Para que serve esta política" },
+        "FIRST_RESPONSE": { "LABEL": "Primeira resposta (minutos)", "PLACEHOLDER": "Em branco para não medir" },
+        "RESOLUTION": { "LABEL": "Resolução (minutos)", "PLACEHOLDER": "Em branco para não medir" },
+        "INBOXES": { "LABEL": "Caixas de entrada", "PLACEHOLDER": "Escolha as caixas" },
+        "ACTIVE": "Política ativa",
+        "HINT": "Uma caixa só pode estar em uma política ativa por vez.",
+        "CANCEL": "Cancelar",
+        "CREATE": "Criar",
+        "SAVE": "Salvar",
+        "EDIT": "Editar",
+        "DELETE": "Excluir"
+      },
+      "API": {
+        "CREATE_SUCCESS": "Política criada",
+        "UPDATE_SUCCESS": "Política atualizada",
+        "DELETE_SUCCESS": "Política excluída",
+        "ERROR": "Não foi possível salvar. Tente de novo."
+      },
+      "DELETE": {
+        "TITLE": "Excluir política",
+        "MESSAGE": "Quer mesmo excluir",
+        "YES": "Sim, excluir",
+        "NO": "Não, manter"
+      }
+    },
+    "REPORT": {
+      "HEADER": "SLA",
+      "DESCRIPTION": "Conversas criadas no período, com o quanto ficou dentro do prazo de primeira resposta e de resolução.",
+      "ALL_INBOXES": "Todas as caixas",
+      "LOADING": "Calculando...",
+      "EMPTY": "Nenhuma conversa com SLA no período.",
+      "FETCH_ERROR": "Não foi possível carregar o relatório.",
+      "TOTALS": {
+        "CONVERSATIONS": "Conversas",
+        "CONVERSATIONS_INFO": "Conversas criadas no período em caixas cobertas por uma política.",
+        "FIRST_RESPONSE": "Primeira resposta no prazo",
+        "FIRST_RESPONSE_INFO": "Percentual das conversas já medidas em que a primeira resposta saiu dentro do prazo.",
+        "RESOLUTION": "Resolução no prazo",
+        "RESOLUTION_INFO": "Percentual das conversas já medidas resolvidas dentro do prazo.",
+        "BREACHED": "Estouradas",
+        "BREACHED_INFO": "Conversas que estouraram pelo menos um dos dois prazos."
+      },
+      "BY_INBOX": "Por caixa de entrada",
+      "BY_AGENT": "Por agente",
+      "UNASSIGNED": "Sem responsável",
+      "TABLE": {
+        "INBOX": "Caixa",
+        "AGENT": "Agente",
+        "CONVERSATIONS": "Conversas",
+        "FIRST_RESPONSE": "1ª resposta no prazo",
+        "RESOLUTION": "Resolução no prazo",
+        "PENDING": "Em aberto"
+      },
+      "RATIO": "{met} de {measured} ({percent}%)"
+    }
+  }
+}
