@@ -293,6 +293,9 @@ Rails.application.routes.draw do
           namespace :cakto_sla do
             resource :report, only: [:show]
           end
+          resources :cakto_tickets, only: [:create] do
+            get :setup, on: :collection
+          end
           resources :custom_attribute_definitions, only: [:index, :show, :create, :update, :destroy]
           resources :custom_filters, only: [:index, :show, :create, :update, :destroy]
           resource :branded_email_layout, only: [:show, :update]

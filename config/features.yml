@@ -283,3 +283,7 @@
   display_name: Ticket e SLA da Cakto
   enabled: true
   column: feature_flags_ext_1
+- name: cakto_tickets
+  display_name: Tickets internos da Cakto
+  enabled: true
+  column: feature_flags_ext_1
