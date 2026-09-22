@@ -6,7 +6,8 @@ describe CaktoSla::ReportService do
   let(:other_inbox) { create(:inbox, account: account, name: 'Email') }
   let(:agent) { create(:user, account: account, role: :agent, name: 'Ana') }
   let(:policy) { create(:cakto_sla_policy, account: account) }
-  let(:team) { create(:team, account: account, name: 'Compliance') }
+  # Sem atribuição automática: com ela, a equipe reatribui a conversa a um membro dela e a agente some do relatório.
+  let(:team) { create(:team, account: account, name: 'Compliance', allow_auto_assign: false) }
 
   def sla_for(inbox, first_response:, resolution:, **conversa)
     conversation = create(:conversation, account: account, inbox: inbox, created_at: 1.day.ago, **conversa)
